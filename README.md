@@ -2,7 +2,7 @@
 
 | Module | Excercises  | Status   | Language | Score       |
 | ---- | :--: | :--: | :--: | :--: |
-| [[CPP_00](https://github.com/izzytoot/cpp_modules/tree/main/cpp_00) | Megaphone, My Awesome PhoneBook, The Job Of Your Dreams | ongoing | C++ | :soon: / :question: |
+| [CPP_00](https://github.com/izzytoot/cpp_modules/tree/main/cpp_00) | (1) Megaphone, (2) My Awesome PhoneBook, (3) The Job Of Your Dreams | ongoing | C++ | :soon: / :question: |
 | [CPP_01] | ... | To be done | C++ | :soon: / :question: |
 | [CPP_02] | ... | To be done | C++ | :soon: / :question: |
 | [CPP_03] | ... | To be done | C++ | :soon: / :question: |
