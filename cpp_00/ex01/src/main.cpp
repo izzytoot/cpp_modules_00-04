@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 17:04:43 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/07/29 18:15:33 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/07/30 19:05:13 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,30 @@ int main(){
 	std::string input;
 	PhoneBook book;
 	
-	std::cout << "Welcome to My Awsome Phonebook!" << std::endl;
-	std::cout << "To add a new contact type in ADD" << std::endl;
-	std::cout << "To search for a contact type in SEARCH" << std::endl;
-	std::cout << "To exit the program type in EXIT" << std::endl;
-		
-	while(1){
-		if (!std::getline(std::cin, input)){
-			std::cout << "No input: exiting My Awsome Phonebook" << std::endl;
-			return 0;
-		}
+	signal(SIGINT, SIG_IGN);
+	signal(SIGQUIT, SIG_IGN);
+	
+	std::cout << std::endl << BGRN << "Welcome to My Awsome Phonebook! ☀️" << RES << std::endl;
+	std::cout << YEL << "To add a new contact type in ADD." << std::endl;
+	std::cout << "To search for a contact type in SEARCH." << std::endl;
+	std::cout << "To exit the program type in EXIT." << RES << std::endl;
+
+	while(true){
+		std::getline(std::cin, input);
+		EXIT_ON_EOF;                                                   
 		if (input == "ADD")
+		{
 			book.addContact();
+			std::cout << YEL << "To continue type in ADD, SEARCH or EXIT." << RES << std::endl;
+		}
 		else if(input == "SEARCH")
 			book.searchContact();
 		else if(input == "EXIT"){
-			std::cout << "Exiting My Awsome Phonebook" << std::endl;
-			return 0;
+			std::cout << std::endl << BGRN << "Exiting My Awsome Phonebook. 👋" << RES << std::endl;
+			break;
 		}
 		else
-			std::cout << "Wrong input. Choose ADD, SEARCH, or EXIT" <<std::endl;
+			std::cout << RED << "❌ Wrong input. Choose ADD, SEARCH, or EXIT." << RES << std::endl;
 	}
 	return 0;
 }

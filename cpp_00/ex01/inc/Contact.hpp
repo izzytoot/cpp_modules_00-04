@@ -6,16 +6,14 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:12:22 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/07/29 18:23:20 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/07/30 18:29:49 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-#include <string>
-#include <iostream>
-#include <iomanip>
+#include "Utils.hpp"
 
 class Contact{
 	//public data and methods can be accessed and changed from outside the Contact class
