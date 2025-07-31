@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 17:04:43 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/07/30 19:05:13 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/07/31 12:13:38 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ int main(){
 			book.addContact();
 			std::cout << YEL << "To continue type in ADD, SEARCH or EXIT." << RES << std::endl;
 		}
-		else if(input == "SEARCH")
+		else if(input == "SEARCH"){
 			book.searchContact();
+			std::cout << YEL << "To continue type in ADD, SEARCH or EXIT." << RES << std::endl;
+		}
 		else if(input == "EXIT"){
 			std::cout << std::endl << BGRN << "Exiting My Awsome Phonebook. 👋" << RES << std::endl;
 			break;

@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:01:31 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/07/30 19:05:00 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/07/31 12:21:58 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,17 @@
 
 
 //utils
+
+//checks if the input has only digits
 int	onlyNumbers(std::string str){
 	for(int i = 0; i < (int)str.length(); i++){
-		if(std::isalpha(str[i]))
+		if(!std::isdigit(str[i]) && !std::isspace(str[i]))
 			return 1;
 	}
 	return 0;
 }
 
+//trims off the spaces before and after the word. If only spaces - empty
 std::string trim(const std::string& str){
 	size_t first = str.find_first_not_of(" \t\n\r\f\v");
 	if (first == std::string::npos)
@@ -61,6 +64,22 @@ std::string parseInput(const std::string& field){ //the & means wee're passing f
 	}
 }
 
+std::string dispField(std::string content){
+	if(content.length() > 10)
+		return (content.substr(0, 9) + ".");
+	return (content);
+}
+
+int isAllDigits(const std::string& str) 
+{
+    for (std::string::size_type i = 0; i < str.length(); i++) 
+    {
+        if (!std::isdigit(static_cast<unsigned char>(str[i])))
+            return 0;
+    }
+    return 1;
+}
+
 //constructor and destructor
 PhoneBook:: PhoneBook() : index(0), counter(0) {}
 PhoneBook:: ~PhoneBook(){}
@@ -72,24 +91,19 @@ void PhoneBook::addContact(){
 	std::cout << std::endl;
 	// Get user input for each field. Use parseInput to request and check valid input.
 	new_contact.setfname(parseInput("First Name")); //const char * -> std::string temporary
-	if (new_contact.getfname() == "")
-		return ;
 	new_contact.setlname(parseInput("Last Name"));
-	if (new_contact.getlname() == "")
-		return ;
 	new_contact.setnname(parseInput("Nickname"));
-	if (new_contact.getnname() == "")
-		return ;
 	new_contact.setphone(parseInput("Phone Number"));
-	if (new_contact.getphone() == "")
-		return ;
 	new_contact.setsecr(parseInput("Darkest Secret"));
-	if (new_contact.getsecr() == "")
-		return ;
+	
 		
 	//save in buffer and overwrite the last one after 8 contacts
 	contacts[index] = new_contact;
-
+	std::cout << "[DEBUG] Stored: " << contacts[index].getfname() << std::endl;
+	std::cout << "[DEBUG] Stored: " << contacts[index].getlname() << std::endl;
+	std::cout << "[DEBUG] Stored: " << contacts[index].getfname() << std::endl;
+	std::cout << "[DEBUG] Stored: " << contacts[index].getphone() << std::endl;
+	std::cout << "[DEBUG] Stored: " << contacts[index].getsecr() << std::endl;
 	//update index and counter
 	index = (index + 1) % 8; //check if index is above 8. circular buffer trick
 	if (counter < 8)
@@ -99,5 +113,51 @@ void PhoneBook::addContact(){
 }
 
 void PhoneBook::searchContact(){
-	
+	std::string chosen_nb_s;
+	int chosen_nb_int;
+	//if empty
+	if (counter == 0){
+		std::cout << RED << "PhoneBook is empty. Please ADD a new contact." << RES << std::endl;
+		return ;
+	}
+	//display PB header
+	std::cout << BCYA << std::endl << " __________ __________ __________ __________ " << RES << std::endl;
+	std::cout << BCYA << "|          |          |          |          |" << RES << std::endl;
+	std::cout << BCYA << "|     Index|First Name| Last Name|  Nickname|" << RES << std::endl;
+	std::cout << BCYA << "|__________|__________|__________|__________|" << RES << std::endl;
+	//display PB contacts
+	std::cout << "counter is " << counter << std::endl;
+	//set colums to 10chars wide and print fields
+	for (int i = 0; i < counter; i++){
+		std::cout << BCYA"|"RES  << std::setw(10) << i + 1;
+		std::cout << BCYA"|"RES << std::setw(10) << std::right << dispField(contacts[i].getfname());
+		std::cout << BCYA"|"RES << std::setw(10) << std::right << dispField(contacts[i].getlname());
+		std::cout << BCYA"|"RES << std::setw(10) << std::right << dispField(contacts[i].getnname());
+		std::cout << BCYA"|"RES << std::endl;
+	}
+	while (true){
+		std::cout << std::endl << YEL << "Type an index number for more info or BACK for main menu." << RES << std::endl;
+		std::cout << std::endl << YEL << "Type BACK for main menu." << RES << std::endl;
+		std::getline(std::cin, chosen_nb_s);
+		EXIT_ON_EOF;
+		if (chosen_nb_s == "BACK"){
+			std::cout << std::endl;
+			break ;
+		}
+		if (!isAllDigits(chosen_nb_s))
+			std::cout << RED << "Index must be a number between 1 and " << counter << "." << RES << std::endl;
+		else{
+			chosen_nb_int = atoi(chosen_nb_s.c_str());
+			if (chosen_nb_s.length() != 1 || !isdigit(chosen_nb_s[0]) || chosen_nb_int < 1 || chosen_nb_int > counter)
+				std::cout << RED << "Index must be a number between 1 and " << counter << "." << RES << std::endl;
+			else{
+				std::cout << BCYA"First name: "RES << contacts[chosen_nb_int].getfname() << std::endl;
+				std::cout << BCYA"Last name: "RES << contacts[chosen_nb_int].getlname() << std::endl;
+				std::cout << BCYA"Nickname: "RES << contacts[chosen_nb_int].getnname() << std::endl;
+				std::cout << BCYA"Phonenubmer: "RES << contacts[chosen_nb_int].getphone() << std::endl;
+				std::cout << BCYA"Darkest secret: "RES << contacts[chosen_nb_int].getsecr() << std::endl;	
+			}	
+		}
+	}
+	return ;
 }
