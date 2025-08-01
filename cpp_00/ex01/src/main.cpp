@@ -6,11 +6,16 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 17:04:43 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/07/31 12:13:38 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/01 18:09:02 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+#define EXIT_ON_EOF if (std::cin.eof()) { \
+    std::cout << std::endl << RED << "EOF received. Exiting program. ❌" << RES << std::endl; \
+    std::exit(0); \
+}
 
 int main(){
 	std::string input;
@@ -30,11 +35,11 @@ int main(){
 		if (input == "ADD")
 		{
 			book.addContact();
-			std::cout << YEL << "To continue type in ADD, SEARCH or EXIT." << RES << std::endl;
+			std::cout << BYEL << "Main menu: " << YEL << "To continue type in ADD, SEARCH or EXIT." << RES << std::endl;
 		}
 		else if(input == "SEARCH"){
 			book.searchContact();
-			std::cout << YEL << "To continue type in ADD, SEARCH or EXIT." << RES << std::endl;
+			std::cout << BYEL << "Main menu: " << YEL << "To continue type in ADD, SEARCH or EXIT." << RES << std::endl;
 		}
 		else if(input == "EXIT"){
 			std::cout << std::endl << BGRN << "Exiting My Awsome Phonebook. 👋" << RES << std::endl;

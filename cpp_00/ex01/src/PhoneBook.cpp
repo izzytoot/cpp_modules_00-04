@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:01:31 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/07/31 12:21:58 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/01 18:13:28 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 //overwrite the last content if > 8
 #include "PhoneBook.hpp"
 
+#define EXIT_ON_EOF if (std::cin.eof()) { \
+    std::cout << std::endl << RED << "EOF received. Exiting program. ❌" << RES << std::endl; \
+    std::exit(0); \
+}
 
 //utils
 
@@ -95,17 +99,14 @@ void PhoneBook::addContact(){
 	new_contact.setnname(parseInput("Nickname"));
 	new_contact.setphone(parseInput("Phone Number"));
 	new_contact.setsecr(parseInput("Darkest Secret"));
+
+	//update index and counter
+	index = (index) % 8; //check if index is above 8. circular buffer trick
 	
-		
 	//save in buffer and overwrite the last one after 8 contacts
 	contacts[index] = new_contact;
-	std::cout << "[DEBUG] Stored: " << contacts[index].getfname() << std::endl;
-	std::cout << "[DEBUG] Stored: " << contacts[index].getlname() << std::endl;
-	std::cout << "[DEBUG] Stored: " << contacts[index].getfname() << std::endl;
-	std::cout << "[DEBUG] Stored: " << contacts[index].getphone() << std::endl;
-	std::cout << "[DEBUG] Stored: " << contacts[index].getsecr() << std::endl;
-	//update index and counter
-	index = (index + 1) % 8; //check if index is above 8. circular buffer trick
+	index++;
+	
 	if (counter < 8)
 		counter++;
 	std::cout << GRN << std::endl << "Success! New contact added. ✅" << RES << std::endl;
@@ -115,18 +116,19 @@ void PhoneBook::addContact(){
 void PhoneBook::searchContact(){
 	std::string chosen_nb_s;
 	int chosen_nb_int;
+	int flag = 0;
 	//if empty
 	if (counter == 0){
 		std::cout << RED << "PhoneBook is empty. Please ADD a new contact." << RES << std::endl;
 		return ;
 	}
+
 	//display PB header
 	std::cout << BCYA << std::endl << " __________ __________ __________ __________ " << RES << std::endl;
 	std::cout << BCYA << "|          |          |          |          |" << RES << std::endl;
 	std::cout << BCYA << "|     Index|First Name| Last Name|  Nickname|" << RES << std::endl;
 	std::cout << BCYA << "|__________|__________|__________|__________|" << RES << std::endl;
 	//display PB contacts
-	std::cout << "counter is " << counter << std::endl;
 	//set colums to 10chars wide and print fields
 	for (int i = 0; i < counter; i++){
 		std::cout << BCYA"|"RES  << std::setw(10) << i + 1;
@@ -135,27 +137,34 @@ void PhoneBook::searchContact(){
 		std::cout << BCYA"|"RES << std::setw(10) << std::right << dispField(contacts[i].getnname());
 		std::cout << BCYA"|"RES << std::endl;
 	}
+	std::cout << BCYA << "|__________|__________|__________|__________|" << RES << std::endl;
 	while (true){
-		std::cout << std::endl << YEL << "Type an index number for more info or BACK for main menu." << RES << std::endl;
-		std::cout << std::endl << YEL << "Type BACK for main menu." << RES << std::endl;
+		if (flag == 0){
+			std::cout << std::endl << YEL << "Type an index number for more info or BACK for main menu." << RES << std::endl;	
+		}
 		std::getline(std::cin, chosen_nb_s);
 		EXIT_ON_EOF;
+		flag = 0;
 		if (chosen_nb_s == "BACK"){
 			std::cout << std::endl;
 			break ;
 		}
-		if (!isAllDigits(chosen_nb_s))
+		if (!isAllDigits(chosen_nb_s)){
 			std::cout << RED << "Index must be a number between 1 and " << counter << "." << RES << std::endl;
+			flag = 1;
+		}
 		else{
-			chosen_nb_int = atoi(chosen_nb_s.c_str());
-			if (chosen_nb_s.length() != 1 || !isdigit(chosen_nb_s[0]) || chosen_nb_int < 1 || chosen_nb_int > counter)
+			chosen_nb_int = std::atoi(chosen_nb_s.c_str());
+			if (chosen_nb_s.length() != 1 || !isdigit(chosen_nb_s[0]) || chosen_nb_int < 1 || chosen_nb_int > counter){
 				std::cout << RED << "Index must be a number between 1 and " << counter << "." << RES << std::endl;
+				flag = 1;	
+			}
 			else{
-				std::cout << BCYA"First name: "RES << contacts[chosen_nb_int].getfname() << std::endl;
-				std::cout << BCYA"Last name: "RES << contacts[chosen_nb_int].getlname() << std::endl;
-				std::cout << BCYA"Nickname: "RES << contacts[chosen_nb_int].getnname() << std::endl;
-				std::cout << BCYA"Phonenubmer: "RES << contacts[chosen_nb_int].getphone() << std::endl;
-				std::cout << BCYA"Darkest secret: "RES << contacts[chosen_nb_int].getsecr() << std::endl;	
+				std::cout << BCYA"First name: "RES << contacts[chosen_nb_int - 1].getfname() << std::endl;
+				std::cout << BCYA"Last name: "RES << contacts[chosen_nb_int - 1].getlname() << std::endl;
+				std::cout << BCYA"Nickname: "RES << contacts[chosen_nb_int - 1].getnname() << std::endl;
+				std::cout << BCYA"Phonenubmer: "RES << contacts[chosen_nb_int - 1].getphone() << std::endl;
+				std::cout << BCYA"Darkest secret: "RES << contacts[chosen_nb_int - 1].getsecr() << std::endl;	
 			}	
 		}
 	}

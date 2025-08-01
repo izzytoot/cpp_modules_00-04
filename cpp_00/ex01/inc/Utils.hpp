@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 18:28:47 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/07/30 18:29:13 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/01 18:07:30 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,5 @@
 #define BYEL "\033[33;1m"
 #define BCYA "\033[36;1m"
 #define RES "\033[0m"
-
-#define EXIT_ON_EOF if (std::cin.eof()) { \
-    std::cout << std::endl << RED << "EOF received. Exiting program. ❌" << RES << std::endl; \
-    std::exit(0); \
-}
 
 #endif
