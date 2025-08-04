@@ -17,16 +17,16 @@
 
 class PhoneBook{
 	public :
-		PhoneBook();
-		~PhoneBook();
+		PhoneBook(); //constructor
+		~PhoneBook(); //destructor
 		
-		void addContact();
-		void searchContact();
+		void addContact(); //to add a contact
+		void searchContact(); //to search for contacts
 
 	private :
-		Contact contacts[8];
-		int index;
-		int counter;
+		Contact contacts[8]; //max 8 contacts
+		int index; //contact index to decide which contact to remove/get info // Points to where the next contact goes
+		int counter; //contact counter (max 8)
 };
 
 #endif

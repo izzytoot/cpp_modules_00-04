@@ -10,6 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//what addContact() should do:
+//ask the user for 5 inputs: First name, Last name, Nickname, Phone number, Darkest secret
+//validate the input
+//store the contact in contacts[]
+//overwrite the last content if > 8
 #include "PhoneBook.hpp"
 
 /* *************************************************************** */
@@ -25,6 +30,7 @@
 /*                               Utils                             */
 /* *************************************************************** */
 
+//checks if the input has only digits
 int	onlyNumbers(std::string str){
 	for(int i = 0; i < (int)str.length(); i++){
 		if(!std::isdigit(str[i]) && !std::isspace(str[i]))
@@ -33,6 +39,7 @@ int	onlyNumbers(std::string str){
 	return 0;
 }
 
+//trims off the spaces before and after the word. If only spaces - empty
 std::string trim(const std::string& str){
 	size_t first = str.find_first_not_of(" \t\n\r\f\v");
 	if (first == std::string::npos)
@@ -41,7 +48,7 @@ std::string trim(const std::string& str){
 	return str.substr(first, last - first + 1);
 }
 
-std::string parseInput(const std::string& field){
+std::string parseInput(const std::string& field){ //the & means wee're passing field by reference (avoids unnecessary copying)
 	std::string input;	
 	
 	while (true){
@@ -98,15 +105,17 @@ void PhoneBook::addContact(){
 	Contact new_contact;
 	
 	std::cout << std::endl;
-
-	new_contact.setfname(parseInput("First Name"));
+	// Get user input for each field. Use parseInput to request and check valid input.
+	new_contact.setfname(parseInput("First Name")); //const char * -> std::string temporary
 	new_contact.setlname(parseInput("Last Name"));
 	new_contact.setnname(parseInput("Nickname"));
 	new_contact.setphone(parseInput("Phone Number"));
 	new_contact.setsecr(parseInput("Darkest Secret"));
 
-	index = (index) % 8;
+	//update index and counter
+	index = (index) % 8; //check if index is above 8. circular buffer trick
 	
+	//save in buffer and overwrite the last one after 8 contacts
 	contacts[index] = new_contact;
 	index++;
 	
@@ -120,17 +129,19 @@ void PhoneBook::searchContact(){
 	std::string chosen_nb_s;
 	int chosen_nb_int;
 	int flag = 0;
-
+	//if empty
 	if (counter == 0){
 		std::cout << RED << "PhoneBook is empty. Please ADD a new contact." << RES << std::endl;
 		return ;
 	}
 
+	//display PB header
 	std::cout << BCYA << std::endl << " __________ __________ __________ __________ " << RES << std::endl;
 	std::cout << BCYA << "|          |          |          |          |" << RES << std::endl;
 	std::cout << BCYA << "|     Index|First Name| Last Name|  Nickname|" << RES << std::endl;
 	std::cout << BCYA << "|__________|__________|__________|__________|" << RES << std::endl;
-
+	//display PB contacts
+	//set colums to 10chars wide and print fields
 	for (int i = 0; i < counter; i++){
 		std::cout << BCYA "|" RES  << std::setw(10) << i + 1;
 		std::cout << BCYA "|" RES << std::setw(10) << std::right << dispField(contacts[i].getfname());

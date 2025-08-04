@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 15:04:23 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/01 18:07:22 by icunha-t         ###   ########.fr       */
+/*   Created: 2025/07/30 18:28:47 by icunha-t          #+#    #+#             */
+/*   Updated: 2025/08/01 18:07:30 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef UTILS_HPP
+#define UTILS_HPP
 
-#include "Contact.hpp"
+#include <string>
+#include <iostream>
+#include <iomanip>
+#include <signal.h>
+#include <limits>
+#include <cstdlib>
 
-class PhoneBook{
-	public :
-		PhoneBook();
-		~PhoneBook();
-		
-		void addContact();
-		void searchContact();
-
-	private :
-		Contact contacts[8];
-		int index;
-		int counter;
-};
+#define RED "\033[0;31m"
+#define GRN "\033[0;32m"  
+#define YEL "\033[0;33m"
+#define BGRN "\033[32;1m"
+#define BYEL "\033[33;1m"
+#define BCYA "\033[36;1m"
+#define RES "\033[0m"
 
 #endif
