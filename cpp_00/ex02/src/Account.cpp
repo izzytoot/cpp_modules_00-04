@@ -50,10 +50,10 @@ int Account::getNbWithdrawals(){
 
 void Account::displayAccountsInfos(){
 	_displayTimestamp();
-	std::cout << "accounts:" << _nbAccounts;
-	std::cout << ";total:" << _totalAmount;
-	std::cout << ";deposits:" << _totalNbDeposits;
-	std::cout << ";withdrawals:" << _totalNbWithdrawals << std::endl;
+	std::cout << "accounts:" << _nbAccounts
+			  << ";total:" << _totalAmount
+			  << ";deposits:" << _totalNbDeposits
+			  << ";withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 
 /* *************************************************************** */
