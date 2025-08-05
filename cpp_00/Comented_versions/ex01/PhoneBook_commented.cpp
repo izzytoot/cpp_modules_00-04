@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
@@ -8,7 +8,7 @@
 /*   Created: 2025/07/29 15:01:31 by icunha-t          #+#    #+#             */
 /*   Updated: 2025/08/01 18:13:28 by icunha-t         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 //what addContact() should do:
 //ask the user for 5 inputs: First name, Last name, Nickname, Phone number, Darkest secret
@@ -17,23 +17,32 @@
 //overwrite the last content if > 8
 #include "PhoneBook.hpp"
 
-/* *************************************************************** */
+/*******************************************************************/
 /*                               Macros                            */
-/* *************************************************************** */
+/*******************************************************************/
 
 #define EXIT_ON_EOF if (std::cin.eof()) { \
     std::cout << std::endl << RED << "EOF received. Exiting program. ❌" << RES << std::endl; \
     std::exit(0); \
 }
 
-/* *************************************************************** */
+/*******************************************************************/
 /*                               Utils                             */
-/* *************************************************************** */
+/*******************************************************************/
 
 //checks if the input has only digits
 int	onlyNumbers(std::string str){
 	for(int i = 0; i < (int)str.length(); i++){
 		if(!std::isdigit(str[i]) && !std::isspace(str[i]))
+			return 1;
+	}
+	return 0;
+}
+
+//checks if the input has only letters
+int	onlyLetters(std::string str){
+	for(int i = 0; i < (int)str.length(); i++){
+		if(!std::isalpha(str[i]) && !std::isspace(str[i]))
 			return 1;
 	}
 	return 0;
@@ -70,6 +79,12 @@ std::string parseInput(const std::string& field){ //the & means wee're passing f
 				continue;
 			}
 		}
+		else{
+			if(onlyLetters(input)){
+				std::cout << RED << "Invalid char. Try again." << RES << std::endl;
+				continue;
+			}
+		}
 		return input;
 	}
 }
@@ -90,16 +105,16 @@ int isAllDigits(const std::string& str)
     return 1;
 }
 
-/* *************************************************************** */
+/*******************************************************************/
 /*                    Constructor and Destructor                   */
-/* *************************************************************** */
+/*******************************************************************/
 
 PhoneBook:: PhoneBook() : index(0), counter(0) {}
 PhoneBook:: ~PhoneBook(){}
 
-/* *************************************************************** */
+/*******************************************************************/
 /*                             Methods                             */
-/* *************************************************************** */
+/*******************************************************************/
 
 void PhoneBook::addContact(){
 	Contact new_contact;

@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
@@ -8,7 +8,7 @@
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
 /*   Updated: 2025/08/01 18:06:51 by icunha-t         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "Account.hpp"
 #include <iostream>
@@ -16,9 +16,9 @@
 #include <string>
 #include <ctime>
 
-/* *************************************************************** */
+/*******************************************************************/
 /*                      Variable initiation                        */
-/* *************************************************************** */
+/*******************************************************************/
 
 //initializing static vars outside class
 //vars regarding the whole system
@@ -27,9 +27,9 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-/* *************************************************************** */
+/*******************************************************************/
 /*                    Static public functions                      */
-/* *************************************************************** */
+/*******************************************************************/
 
 //implement static functions:
 int Account::getNbAccounts(){
@@ -56,9 +56,9 @@ void Account::displayAccountsInfos(){
 			  << ";withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 
-/* *************************************************************** */
+/*******************************************************************/
 /*                 Constructor and Destructor                      */
-/* *************************************************************** */
+/*******************************************************************/
 
 Account:: Account(int initial_deposit): 
 	_accountIndex(_nbAccounts),
@@ -67,7 +67,7 @@ Account:: Account(int initial_deposit):
 	_nbWithdrawals(0){
 		_totalAmount += initial_deposit;
 		_displayTimestamp();
-		std::cout <<"index:" 
+		std::cout <<" index:" 
 				  << _accountIndex 
 				  << ";amount:" << initial_deposit 
 				  << ";created" << std::endl;
@@ -75,22 +75,22 @@ Account:: Account(int initial_deposit):
 
 Account:: ~Account(){
 	_displayTimestamp();
-	std::cout <<"index:" 
+	std::cout <<" index:" 
 			  << _accountIndex 
 			  << ";amount:" << _amount
 			  << ";closed" << std::endl;
 }
 
-/* *************************************************************** */
+/*******************************************************************/
 /*            Member public functions (per instance)               */
-/* *************************************************************** */
+/*******************************************************************/
 
 void Account::makeDeposit(int deposit){
 	_totalAmount += deposit; //update total amount
 	_totalNbDeposits++; //update total nb of deposits
 
 	_displayTimestamp();
-	std::cout << "index:" << _accountIndex
+	std::cout << " index:" << _accountIndex
 			  << ";p_amount:" << _amount //before deposit
 			  << ";deposit:" << deposit;
 	_amount += deposit;
@@ -103,8 +103,8 @@ bool Account::makeWithdrawal(int withdrawal){
 	_totalAmount -= withdrawal;
 
 	_displayTimestamp();
-	std::cout << "index:" << _accountIndex
-			  << "p_amount:" << _amount;
+	std::cout << " index:" << _accountIndex
+			  << ";p_amount:" << _amount;
 
 	if ((_amount - withdrawal) > 0){
 		_amount -= withdrawal;
@@ -129,15 +129,15 @@ int Account::checkAmount() const{
 
 void Account::displayStatus() const{
 	_displayTimestamp();
-	std::cout << "index:" << _accountIndex
+	std::cout << " index:" << _accountIndex
 			  << ";amount:" << _amount
 			  << ";deposits:" << _nbDeposits
 			  << ";withdrawls:" << _nbWithdrawals << std::endl;
 }
 
-/* *************************************************************** */
+/*******************************************************************/
 /*                       Static prvate function                     */
-/* *************************************************************** */
+/*******************************************************************/
 
 //diplay timestapm [YYYYMMDD_HHMMSS]
 //usage of std functions time and localtime
