@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/06 18:26:54 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/06 19:13:24 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Zombie.hpp"
+#ifndef WEAPON_H
+# define WEAPON_H
 
-/*******************************************************************/
-/*                        Helper function                          */
-/*******************************************************************/
+#include <string>
+#include <iomanip>
+#include <iostream>
 
-//Creates a zombie on the stack memory, announces it, and lets it die automatically:
-//Stack allocated memory calls the destructor automatically
-//allocated memory is destroyed automatically at the end of function - can't be used anymore
-void randomChump( std::string name ){
-	Zombie z(name);
-	z.announce();
-}
+class Weapon{
+	private:
+		std::string _type;
+		
+	public:
+		Weapon(std::string type);
+		~Weapon();
+		const std::string& getType() const; //first const protects return value; second const guarantees the function can't change value inside
+		void setType(const std::string& newType); //& passes the string without copying it
+};
+
+#endif

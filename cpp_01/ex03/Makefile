@@ -2,7 +2,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME = braiiiiiiinnnzzzZ
+NAME = unnecessaryViolence
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
@@ -12,7 +12,7 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 INC_DIR = ./inc/
 SRCS_DIR = ./src/
-SRCS = $(addprefix $(SRCS_DIR), main.cpp Zombie.cpp randomChump.cpp newZombie.cpp)
+SRCS = $(addprefix $(SRCS_DIR), main.cpp Zombie.cpp zombieHorde.cpp)
 TMP = ./tmp
 
 ################################################################################

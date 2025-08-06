@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 15:12:22 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/06 18:26:34 by isabeltooti      ###   ########.fr       */
+/*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
+/*   Updated: 2025/08/06 18:26:15 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <iomanip>
 #include <iostream>
+#include <sstream> //to create the joint string (hoardy_n)
 
 #define RED "\033[0;31m"
 #define GRN "\033[0;32m"  
@@ -28,16 +29,17 @@
 
 class	Zombie{
 	public:
-		Zombie(std::string name); //constructor
-		~Zombie(); //destructor
+		Zombie();
+		~Zombie();
 
-		void announce(void); //member function
+		void setName(std::string name);
+		std::string getName() const;
+		void announce();
 
 	private:
-		std::string _name; //private attribute
+		std::string _name;
 };
 
-Zombie* newZombie(std::string name); //helper function
-void randomChump(std::string name); //helper function
+Zombie* zombieHorde( int N, std::string name );
 
 #endif

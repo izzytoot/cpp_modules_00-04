@@ -6,28 +6,32 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/06 18:26:45 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/06 18:26:24 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Zombie.hpp"
+#include <string>
+#include <iomanip>
+#include <iostream>
+
+#define BCYA "\033[36;1m"
+#define RES "\033[0m"
 
 int main(){
-	Zombie*	heapZombie1 = newZombie("heap_Isabel");
-	heapZombie1->announce();
-
-	Zombie*	heapZombie2 = newZombie("heap_Filipe");
-	heapZombie2->announce();
-
-	std::cout << "heap_Isabel and heap_Filipe are having a chat because they haven't been destroyed yet." << std::endl;
-
-	delete heapZombie1;
-	delete heapZombie2;
-
-	std::cout << std::endl;
+	std::string stringSTR = "HI THIS IS BRAIN";
 	
-	randomChump("stack_Philip");
-	randomChump("stack_Rodrigo");
+	std::string* stringPTR = &stringSTR;
+	std::string& stringREF = stringSTR;
+
+	std::cout << BCYA << "*** MEMORY ADDRESSES ***" << RES << std::endl;
+	std::cout <<  "stringSTR: " << &stringSTR << std::endl;
+	std::cout <<  "stringPTR: " << stringPTR << std::endl;
+	std::cout <<  "stringREF: " << &stringREF << std::endl;
+
+	std::cout << BCYA << "*** VALUES ***" << RES << std::endl;
+	std::cout <<  "stringSTR: " << stringSTR << std::endl;
+	std::cout <<  "stringPTR: " << *stringPTR << std::endl;
+	std::cout <<  "stringREF: " << stringREF << std::endl;
 
 	return 0;
 }

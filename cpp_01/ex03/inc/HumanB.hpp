@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/06 18:26:54 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/06 19:34:33 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Zombie.hpp"
+#ifndef HUMANB_H
+# define HUMANB_H
 
-/*******************************************************************/
-/*                        Helper function                          */
-/*******************************************************************/
+#include "Weapon.hpp"
 
-//Creates a zombie on the stack memory, announces it, and lets it die automatically:
-//Stack allocated memory calls the destructor automatically
-//allocated memory is destroyed automatically at the end of function - can't be used anymore
-void randomChump( std::string name ){
-	Zombie z(name);
-	z.announce();
-}
+//weapon is optional so it can start without a weapon
+class HumanB{
+	private:
+		Weapon* _weapon;
+		std::string _name;
+	
+	public:
+		HumanB(std::string name);
+		~HumanB();
+		void attack();
+		void setWeapon(Weapon& weapon);	
+};
+
+#endif

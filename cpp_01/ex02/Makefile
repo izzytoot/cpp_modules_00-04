@@ -2,7 +2,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME = braiiiiiiinnnzzzZ
+NAME = thisIsBrain
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
@@ -10,9 +10,7 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-INC_DIR = ./inc/
-SRCS_DIR = ./src/
-SRCS = $(addprefix $(SRCS_DIR), main.cpp Zombie.cpp randomChump.cpp newZombie.cpp)
+SRCS = main.cpp
 TMP = ./tmp
 
 ################################################################################
@@ -41,7 +39,7 @@ RESET	= "\033[0m"
 
 all: $(NAME)
 
-OBJS = $(SRCS:$(SRCS_DIR)%.cpp=$(TMP)/%.o)
+OBJS = $(SRCS:%.cpp=$(TMP)/%.o)
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
@@ -58,9 +56,9 @@ $(NAME): $(OBJS)
 	@echo $(BGRN) "Compilation Successful!"$(RESET)
 	@echo $(BYEL)" The program $(NAME) was created by icunha-t!" $(RESET)
 
-$(TMP)/%.o: $(SRCS_DIR)%.cpp
+$(TMP)/%.o: %.cpp
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJS)
