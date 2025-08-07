@@ -6,7 +6,7 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:12:22 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/07 12:34:11 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/06 18:26:34 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@
 
 class	Zombie{
 	public:
-		Zombie(std::string name);
-		~Zombie();
+		Zombie(std::string name); //constructor
+		~Zombie(); //destructor
 
-		void announce(void);
+		void announce(void); //member function
 
 	private:
-		std::string _name;
+		std::string _name; //private attribute
 };
 
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
+Zombie* newZombie(std::string name); //helper function
+void randomChump(std::string name); //helper function
 
 #endif

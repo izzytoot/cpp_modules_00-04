@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/07 12:57:03 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/07 13:55:07 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_H
-# define HUMANB_H
+#include "../inc/prog.hpp"
 
-#include "Weapon.hpp"
-
-class HumanB{
-	private:
-		std::string _name;
-		Weapon* _weapon;
+int main(int ac, char **av){
+	if (ac != 4){
+		std::cout << RED << "Invalid input. Please provide <filename> <str1> <str2>" << RES << std::endl;
+		return 1;
+	}
 	
-	public:
-		HumanB(std::string name);
-		~HumanB();
-		
-		void setWeapon(Weapon& weapon);
-		void attack();
-};
-
-#endif
+	
+}

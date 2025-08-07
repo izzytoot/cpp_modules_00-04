@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   prog.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/07 12:57:03 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/07 13:52:01 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_H
-# define HUMANB_H
+#ifndef PROG_H
+# define PROG_H
 
-#include "Weapon.hpp"
+#include <iomanip>
+#include <string>
+#include <iostream>
 
-class HumanB{
-	private:
-		std::string _name;
-		Weapon* _weapon;
-	
-	public:
-		HumanB(std::string name);
-		~HumanB();
-		
-		void setWeapon(Weapon& weapon);
-		void attack();
-};
+#define RED "\033[0;31m"
+#define GRN "\033[0;32m"  
+#define YEL "\033[0;33m"
+#define BRED "\033[31;1m"
+#define BGRN "\033[32;1m"
+#define BYEL "\033[33;1m"
+#define BCYA "\033[36;1m"
+#define RES "\033[0m"
 
 #endif

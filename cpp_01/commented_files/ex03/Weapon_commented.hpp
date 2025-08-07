@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 15:12:22 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/07 12:34:11 by isabeltooti      ###   ########.fr       */
+/*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
+/*   Updated: 2025/08/07 12:55:05 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#ifndef WEAPON_H
+# define WEAPON_H
 
 #include <string>
 #include <iomanip>
@@ -26,18 +26,18 @@
 #define BCYA "\033[36;1m"
 #define RES "\033[0m"
 
-class	Zombie{
-	public:
-		Zombie(std::string name);
-		~Zombie();
-
-		void announce(void);
-
+class Weapon{
 	private:
-		std::string _name;
+		std::string _type;
+		
+	public:
+		Weapon(std::string type);
+		~Weapon();
+		const std::string& getType() const;
+		//first const protects return value; 
+		//second const guarantees the function can't change value inside
+		void setType(const std::string& newType);
+		//& passes the string without copying it
 };
-
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
 
 #endif

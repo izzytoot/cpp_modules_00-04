@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   newZombie _commented.cpp                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/07 12:57:55 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/07 12:35:12 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Weapon.hpp"
+#include "../inc/Zombie.hpp"
 
 /*******************************************************************/
-/*                     Constructor and Destructor                  */
+/*                        Helper function                          */
 /*******************************************************************/
 
-Weapon::Weapon(std::string type) : _type(type) {}
-
-Weapon::~Weapon(){};
-
-/*******************************************************************/
-/*                      Getters / Setters                          */
-/*******************************************************************/
-
-const std::string& Weapon::getType() const {
-	return this->_type;
-}
-
-void Weapon::setType(const std::string& newType){
-	this->_type = newType;
+//allocates on the heap memory using new and returns the pointer
+//new is a keyword bultin to C++
+//allocated memory can be used outside the scope of this function
+Zombie* newZombie(std::string name){
+	Zombie* newZombie = new Zombie(name);
+	return newZombie;
 }
