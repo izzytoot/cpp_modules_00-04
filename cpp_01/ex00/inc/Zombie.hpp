@@ -6,7 +6,7 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:12:22 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/07 12:34:11 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/07 17:16:17 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@
 #define RES "\033[0m"
 
 class	Zombie{
+	private:
+		std::string _name;
+		
 	public:
 		Zombie(std::string name);
 		~Zombie();
 
 		void announce(void);
-
-	private:
-		std::string _name;
 };
 
 Zombie* newZombie(std::string name);

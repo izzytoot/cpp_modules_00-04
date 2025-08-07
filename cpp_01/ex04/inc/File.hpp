@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   File.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/07 17:15:59 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/07 18:39:45 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#ifndef FILE_H
+# define FILE_H
 
-#include <string>
 #include <iomanip>
+#include <string>
 #include <iostream>
-#include <sstream> //to create the joint string (hoardy_n)
+#include <sstream>
+#include <fstream>
 
 #define RED "\033[0;31m"
 #define GRN "\033[0;32m"  
@@ -27,19 +28,20 @@
 #define BCYA "\033[36;1m"
 #define RES "\033[0m"
 
-class	Zombie{
+class File{
 	private:
-		std::string _name;
+		std::string _fileName;
+		std::string _s1;
+		std::string _s2;	
 		
 	public:
-		Zombie();
-		~Zombie();
+		File();
+		~File();
 
-		void setName(std::string name);
-		std::string getName() const;
-		void announce();
+		void setFileName(std::string fileName);
+		void setS1(std::string s1);
+		void setS2(std::string s2);
+		void transformFile();
 };
-
-Zombie* zombieHorde( int N, std::string name );
 
 #endif

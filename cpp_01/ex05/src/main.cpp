@@ -6,28 +6,10 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/07 18:51:22 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/07 19:12:43 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/File.hpp"
+#include "../inc/Harl.hpp"
 
-int main(int ac, char **av){
-	if (ac != 4){
-		std::cout << RED << "Invalid input. Please provide <filename> <s1> <s2>." << RES << std::endl;
-		return 1;
-	}
-	if (!av[2]){
-		std::cout << RED << "Invalid input. Please provide a valid s1." << RES << std::endl;
-		return 1;
-	}
-	
-	File file;
-	
-	file.setFileName(av[1]);
-	file.setS1(av[2]);
-	file.setS2(av[3]);
-	file.transformFile();
-	
-	return 0;
-}
+int main()

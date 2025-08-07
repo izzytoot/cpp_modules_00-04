@@ -2,7 +2,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME = sed
+NAME = harl
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
@@ -12,7 +12,7 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 INC_DIR = ./inc/
 SRCS_DIR = ./src/
-SRCS = $(addprefix $(SRCS_DIR), main.cpp)
+SRCS = $(addprefix $(SRCS_DIR), main.cpp Harl.hpp Harl.cpp)
 TMP = ./tmp
 
 ################################################################################
