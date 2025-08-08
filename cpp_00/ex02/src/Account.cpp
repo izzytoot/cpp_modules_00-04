@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/01 18:06:51 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/08 13:18:34 by icunha-t         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
@@ -112,7 +112,7 @@ bool Account::makeWithdrawal(int withdrawal){
 
 		std::cout << ";withdrawal:" <<withdrawal
 				  << ";amount:" << _amount
-				  << ";nb_withdrawls:" << _nbWithdrawals << std::endl;
+				  << ";nb_withdrawals:" << _nbWithdrawals << std::endl;
 		return true;
 	}
 	else{
@@ -131,7 +131,7 @@ void Account::displayStatus() const{
 	std::cout << " index:" << _accountIndex
 			  << ";amount:" << _amount
 			  << ";deposits:" << _nbDeposits
-			  << ";withdrawls:" << _nbWithdrawals << std::endl;
+			  << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
 
 /*******************************************************************/
