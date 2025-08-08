@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/08 15:30:37 by icunha-t         ###   ########.fr       */
+/*   Created: 2025/08/08 15:58:10 by icunha-t          #+#    #+#             */
+/*   Updated: 2025/08/08 16:34:09 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,27 @@ Harl::~Harl(){}
 /*******************************************************************/
 
 void Harl::debug(){
-	std::cout << BGRN << "This is Harl's DEBUG complaint!" << RES << std::endl;
+	std::cout << BGRN << "[WARNING]" << std::endl
+			  << "This is Harl's DEBUG complaint!" << RES
+			  << std::endl;
 }
 
 void Harl::info(){
-	std::cout << BCYA << "This is Harl's INFO complaint!" << RES << std::endl;
+	std::cout << BCYA << "[INFO]" << std::endl
+			  << "This is Harl's INFO complaint!" << RES
+			  << std::endl;
 }
 
 void Harl::warning(){
-	std::cout << BYEL << "This is Harl's WARNING complaint!" << RES << std::endl;
+	std::cout << BYEL << "[WARNING]" << std::endl
+			  << "This is Harl's WARNING complaint!" << RES
+			  << std::endl;
 }
 
 void Harl::error(){
-	std::cout << BRED << "This is Harl's ERROR complaint!" << RES << std::endl;
+	std::cout << BRED << "[ERROR]" << std::endl
+			  << "This is Harl's ERROR complaint!" << RES
+			  << std::endl;
 }
 
 /*******************************************************************/
@@ -45,19 +53,39 @@ void Harl::error(){
 /*******************************************************************/
 
 void Harl::complain(std::string level){
-	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*ftPtr[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	int intLevel = strLevelToInt(level);
 
-	if (level.empty()){
-		std::cout << RED << "Error: empty level!" << RES << std::endl;
-		return ;	
+	switch(intLevel){
+		case 0:
+			debug();
+			std::cout << std::endl;
+		case 1:
+			info();
+			std::cout << std::endl;
+		case 2:
+			warning();
+			std::cout << std::endl;
+		case 3:
+			error();
+			std::cout << std::endl;
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;		
 	}
+}
+
+/*******************************************************************/
+/*                        Helper functions                         */
+/*******************************************************************/
+
+int strLevelToInt(std::string level){
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	int intLevel[4] = {0, 1, 2, 3};
 
 	for (int i = 0; i < 4; i++){
-		if (level == levels[i]){
-			(this->*ftPtr[i])();
-			return ;
-		}
+		if (level == levels[i])
+			return intLevel[i];
 	}
-	std::cout << RED << "Error: level not found!" << RES << std::endl;
+
+	return -1;
 }

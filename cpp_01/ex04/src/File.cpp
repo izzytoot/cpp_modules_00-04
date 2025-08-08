@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   File.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/07 19:08:01 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/08 14:49:34 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ File::File(){}
 
 File::~File(){}
 
+/*******************************************************************/
+/*                        Setter functions                         */
+/*******************************************************************/
+
 void File::setFileName(std::string fileName){
 	_fileName = fileName;
 }
@@ -30,6 +34,22 @@ void File::setS1(std::string s1){
 
 void File::setS2(std::string s2){
 	_s2 = s2;
+}
+
+/*******************************************************************/
+/*                     Methods / Member function                   */
+/*******************************************************************/
+
+void File::transformFile(){
+	std::string content;
+	content = openAndRead(_fileName);
+	if (content == ""){
+		std::cout << RED << "Error: failed to open input file." << RES << std::endl;
+		return ;
+	}
+	std::string newContent;
+	newContent = transformContent(content, _s1, _s2);
+	writeNewFile(_fileName, newContent);
 }
 
 /*******************************************************************/
@@ -71,20 +91,4 @@ void writeNewFile(const std::string fileName, const std::string newContent){
 	}
 	outFile << newContent;
 	outFile.close();
-}
-
-/*******************************************************************/
-/*                     Methods / Member function                   */
-/*******************************************************************/
-
-void File::transformFile(){
-	std::string content;
-	content = openAndRead(_fileName);
-	if (content == ""){
-		std::cout << RED << "Error: failed to open input file." << RES << std::endl;
-		return ;
-	}
-	std::string newContent;
-	newContent = transformContent(content, _s1, _s2);
-	writeNewFile(_fileName, newContent);
 }

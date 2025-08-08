@@ -5,27 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/08 15:19:04 by icunha-t         ###   ########.fr       */
+/*   Created: 2025/08/08 15:58:20 by icunha-t          #+#    #+#             */
+/*   Updated: 2025/08/08 16:29:13 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Harl.hpp"
 
-int main(){
+int main(int ac, char **av){
+	if (ac != 2){
+		std::cout << RED << "Error: Run ./harlFilter <level of complaint>" << RES << std::endl;
+		return 1;
+	}
+	
+	std::string level = av[1];
+	if (level.empty()){
+		std::cout << RED << "Error: level can't be empty!" << RES << std::endl;
+		return 1;
+	}
+	
+	//if (level.compare("DEBUG") && level.compare("INFO") && level.compare("WARNING") && level.compare("ERROR"))
+		
 	Harl harl;
-	
-	std::cout << BCYA << "*** Testing HARL with all levels ***" << RES << std::endl;
-	harl.complain("DEBUG");
-	harl.complain("INFO");
-	harl.complain("WARNING");
-	harl.complain("ERROR");
-
-	std::cout << std::endl;
-	
-	std::cout << BCYA << "*** Testing Harl with invalid level ***" << RES << std::endl;
-	harl.complain("");
-	harl.complain("INVALID");
+	harl.complain(level);
 	
 	return 0;
 }

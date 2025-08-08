@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/07 17:15:59 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/08 16:48:32 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
 #include <string>
 #include <iomanip>
 #include <iostream>
-#include <sstream> //to create the joint string (hoardy_n)
+#include <sstream>
 
 #define RED "\033[0;31m"
 #define GRN "\033[0;32m"  

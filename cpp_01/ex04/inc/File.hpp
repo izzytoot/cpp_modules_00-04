@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   File.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/07 18:39:45 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/08 14:50:02 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILE_H
-# define FILE_H
+#ifndef FILE_HPP
+# define FILE_HPP
 
 #include <iomanip>
 #include <string>
@@ -43,5 +43,9 @@ class File{
 		void setS2(std::string s2);
 		void transformFile();
 };
+
+std::string openAndRead(std::string fileName);
+std::string transformContent(const std::string content, const std::string s1, const std::string s2);
+void writeNewFile(const std::string fileName, const std::string newContent);
 
 #endif

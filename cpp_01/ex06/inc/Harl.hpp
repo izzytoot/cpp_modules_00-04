@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/08 14:51:34 by icunha-t         ###   ########.fr       */
+/*   Created: 2025/08/08 15:57:31 by icunha-t          #+#    #+#             */
+/*   Updated: 2025/08/08 16:22:04 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@ class Harl{
 		void info();
 		void warning();
 		void error();
-
+		
 	public:
 		Harl();
 		~Harl();
-	
+
 		void complain(std::string level);
 };
+
+int strLevelToInt(std::string level);
 
 #endif
