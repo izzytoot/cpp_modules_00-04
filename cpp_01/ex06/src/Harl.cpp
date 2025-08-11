@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 15:58:10 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/08 16:34:09 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/11 20:02:03 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Harl::~Harl(){}
 /*******************************************************************/
 
 void Harl::debug(){
-	std::cout << BGRN << "[WARNING]" << std::endl
+	std::cout << BGRN << "[DEBUG]" << std::endl
 			  << "This is Harl's DEBUG complaint!" << RES
 			  << std::endl;
 }
