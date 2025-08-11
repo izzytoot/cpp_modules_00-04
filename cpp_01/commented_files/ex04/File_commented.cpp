@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   File.cpp                                           :+:      :+:    :+:   */
+/*   File_commented.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/07 19:02:59 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/11 15:17:42 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void File::setS2(std::string s2){
 /*                        Helper functions                         */
 /*******************************************************************/
 
-std::string openAndRead(std::string fileName){
+std::string 
+openAndRead(std::string fileName){
 	std::ifstream inFile(fileName.c_str()); //standard input file stream - used to open and read from files
 	if (!inFile)
 		return "";
@@ -66,7 +67,7 @@ std::string transformContent(const std::string content, const std::string s1, co
 
 void writeNewFile(const std::string fileName, const std::string newContent){
 	std::string newFileName = fileName + ".replace";
-	std::ofstream outFile(newFileName.c_str()); //standars output file stream - used to open/creat and write into a file
+	std::ofstream outFile(newFileName.c_str()); //standard output file stream - used to open/create and write into a file
 	if (!outFile.is_open()){ //check if the file opened
 		std::cout << RED << "Error: failed to open output file." << RES << std::endl;
 		return ;

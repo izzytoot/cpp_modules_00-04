@@ -6,7 +6,7 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:17 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/07 13:03:56 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/11 14:15:44 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 int main(){
 	std::cout << BYEL << " *** Creating Human A *** " << RES << std::endl;
-	Weapon sword("sword");
+	Weapon y_weapon("sword");
 	std::cout << BYEL << " *** Human A attacks *** " << RES << std::endl;
-	HumanA isabel("Isabel", sword);
+	HumanA isabel("Isabel", y_weapon);
 	isabel.attack();
 
 	std::cout << BYEL << " *** Human A changes weapon and attacks *** " << RES << std::endl;
-	sword.setType("gun");
+	y_weapon.setType("gun");
 	isabel.attack();
 
 	std::cout << BYEL << " *** Creating Human B *** " << RES << std::endl;
@@ -30,7 +30,7 @@ int main(){
 	HumanB filipe("Filipe");
 	std::cout << BYEL << " *** Human B tries to attack *** " << RES << std::endl;
 	filipe.attack();
-	std::cout << BYEL << " *** Human B gets a weapon and attacks *** " << RES << std::endl;
+	std::cout << BYEL << " *** Human B gets weapon and attacks *** " << RES << std::endl;
 	filipe.setWeapon(x_weapon);
 	filipe.attack();
 	std::cout << BYEL << " *** Human B changes weapon and attacks *** " << RES << std::endl;
