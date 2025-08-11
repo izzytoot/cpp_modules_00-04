@@ -4,7 +4,7 @@
 | ---- | :--: | :--: | :--: | :--: |
 | [CPP_00](https://github.com/izzytoot/cpp_modules/tree/main/cpp_00) | (00) Megaphone, (01) My Awesome PhoneBook, (02) The Job Of Your Dreams | ongoing | C++ |  100 / 100 :white_check_mark: |
 | [CPP_01](https://github.com/izzytoot/cpp_modules/tree/main/cpp_01) | (00) BraiiiiiiinnnzzzZ, (01) Moar brainz!, (02) HI THIS IS BRAIN, (03) Unnecessary violence, (04) Sed is for losers, (05) Harl 2.0, (06) Harl filter | To be done | C++ | :soon: / :question: |
-| [CPP_02] | ... | To be done | C++ | :soon: / :question: |
+| [CPP_02](https://github.com/izzytoot/cpp_modules/tree/main/cpp_02) | (00) My First Class in Orthodox Canonical Form, (01) Towards a more useful fixed-point number class, (02) Now we’re talking, (03) BSP | To be done | C++ | :soon: / :question: |
 | [CPP_03] | ... | To be done | C++ | :soon: / :question: |
 | [CPP_04] | ... | To be done | C++ | :soon: / :question: |
 | [CPP_05] | ... | To be done | C++ | :soon: / :question: |
