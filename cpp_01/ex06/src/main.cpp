@@ -23,8 +23,6 @@ int main(int ac, char **av){
 		std::cout << RED << "Error: level can't be empty!" << RES << std::endl;
 		return 1;
 	}
-	
-	//if (level.compare("DEBUG") && level.compare("INFO") && level.compare("WARNING") && level.compare("ERROR"))
 		
 	Harl harl;
 	harl.complain(level);
