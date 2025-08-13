@@ -6,7 +6,7 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:02:04 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/13 21:26:49 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/13 21:28:48 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <iomanip>
 #include <iostream>
+#include <math.h>
 
 #define RED "\033[0;31m"
 #define GRN "\033[0;32m"  
