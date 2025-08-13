@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:02:28 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/12 18:24:39 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/13 10:45:24 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,11 @@ Fixed::~Fixed(){
 /******************************************************************************/
 // copy assignment operator - assigns one existing object to another
 // example: Fixed a, b; b = a;
-Fixed& Fixed::operator = (const Fixed& newFixed){
+// Fixed& means that the return value is a reference to a the current object. Without the reference we would be returning a copy
+Fixed& Fixed::operator = (const Fixed& otherFixed){
 	std::cout << YEL << "Copy assignment operator called" << RES << std::endl;
-	if (this != &newFixed) //checks for self assignment (a == a;)
-		this->_fixedPointValue = newFixed.getRawBits();
+	if (this != &otherFixed) //checks for self assignment (a == a;)
+		this->_fixedPointValue = otherFixed.getRawBits();
 	return (*this);
 }
 

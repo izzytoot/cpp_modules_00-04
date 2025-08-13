@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 11:59:20 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/12 17:59:50 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/13 10:45:27 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class Fixed{
 		
 	public:
 		Fixed(); //constructor
-		Fixed(Fixed const& src); //copy constructor - creates new instance; src is the Fixed object to copy from
-		Fixed& operator=(Fixed  const& rhs); //copy assignment operator - updates current instance
+		Fixed(const Fixed& src); //copy constructor - creates new instance; src is the Fixed object to copy from
+		Fixed& operator = (const Fixed& otherFixed); //copy assignment operator - updates current instance
 		~Fixed(); //destructor
 
 		int getRawBits() const; // returns the raw value of the fixed point value
