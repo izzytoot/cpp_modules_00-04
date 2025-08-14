@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:03:48 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/14 19:02:24 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/14 16:09:18 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ Fixed::~Fixed(){
 	std::cout << RED << "Destructor called" << RES << std::endl;
 }
 
+//Converts the int to the corresponding fixed-point value. 
 Fixed::Fixed(const int i){
 	std::cout << GRN << "Int constructor called" << RES << std::endl;
 	this->_fixedPointValue = i << this->_fractionalBits; //this->_fixedPointValue = i * 256;
 }
-
+//Converts the float to the corresponding fixed-point value.
+//roundf takes a float and returns a float rounded to int
 Fixed::Fixed(const float f){
 	std::cout << GRN << "Float constructor called" << RES << std::endl;
-	this->_fixedPointValue = (int)roundf(f * (1 << this->_fractionalBits)); //1<<8 = 256 ; f * 256
+	this->_fixedPointValue = (int)roundf(f * (1 << this->_fractionalBits));
 }
 
 /******************************************************************************/
@@ -68,13 +70,14 @@ void Fixed::setRawBits(int const raw){
 	this->_fixedPointValue = raw;
 }
 
+//converts the fixed-point value to an int value.
 int	Fixed::toInt() const{
 	int i = this->_fixedPointValue >> this->_fractionalBits; // i = this->_fixedPointValue * 256;
 	return i;
 }
 
+//converts the fixed-point value to a floating-point value.
 float Fixed::toFloat() const{
 	float f = (float)this->_fixedPointValue / (1 << this->_fractionalBits); // 	f = (float)this->_fixedPointValue / 256.0f;
-	//std::cout << std::endl << BCYA << "FPV is " << _fixedPointValue << RES << std::endl;
 	return f;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:03:48 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/14 12:51:30 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/14 21:16:38 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@
 /*                  Constructors, Copy Constructor, Destructor                 */
 /******************************************************************************/
 Fixed::Fixed(): _fixedPointValue(0) {
-	std::cout << GRN << "Default constructor called" << RES << std::endl;
+//	std::cout << GRN << "Default constructor called" << RES << std::endl;
 }
 
 Fixed::Fixed(const Fixed& src){
-	std::cout << GRN << "Copy constructor called" << RES << std::endl;
+//	std::cout << GRN << "Copy constructor called" << RES << std::endl;
 	*this = src;
 }
 
 Fixed::~Fixed(){
-	std::cout << RED << "Destructor called" << RES << std::endl;
+//	std::cout << RED << "Destructor called" << RES << std::endl;
 }
 
 Fixed::Fixed(const int i){
-	std::cout << GRN << "Int constructor called" << RES << std::endl;
-	this->_fixedPointValue = i << this->_fractionalBits; //this->_fixedPointValue = i * 256;
+//	std::cout << GRN << "Int constructor called" << RES << std::endl;
+	this->_fixedPointValue = i << this->_fractionalBits;
 }
 
 Fixed::Fixed(const float f){
-	std::cout << GRN << "Float constructor called" << RES << std::endl;
+//	std::cout << GRN << "Float constructor called" << RES << std::endl;
 	this->_fixedPointValue = (int)roundf(f * (1 << this->_fractionalBits));
 }
 
@@ -43,14 +43,14 @@ Fixed::Fixed(const float f){
 /******************************************************************************/
 
 Fixed& Fixed::operator = (const Fixed& otherFixed){
-	std::cout << YEL << "Copy assignment operator called" << RES << std::endl;
+//	std::cout << YEL << "Copy assignment operator called" << RES << std::endl;
 	if (this != &otherFixed)
 		this->_fixedPointValue = otherFixed.getRawBits();
 	return (*this);
 }
 
-std::ostream& operator << (std::ostream& output, const Fixed& fixednbr){
-	output << fixednbr.toFloat();
+std::ostream& operator << (std::ostream& output, const Fixed& fixedNbr){
+	output << fixedNbr.toFloat();
 	return output;
 }
 
@@ -76,35 +76,40 @@ Fixed	Fixed::operator * (const Fixed& otherFixed) const{
 	return newFixed;
 }
 
-Fixed	Fixed::operator / (const Fixed& otherFixed) const{
-	Fixed newFixed;
-	long long rawNbr = (long long)this->getRawBits() / (long long)otherFixed.getRawBits();
+Fixed Fixed::operator / (const Fixed& otherFixed) const {
+    Fixed newFixed;
 	
-	newFixed.setRawBits((int)rawNbr << this->_fractionalBits);
+    long long numerator = ((long long)this->getRawBits() << this->_fractionalBits);
+    long long result = numerator / otherFixed.getRawBits();
+    newFixed.setRawBits((int)result);
+    return newFixed;
+}
+
+Fixed&	Fixed::operator ++ (){
+	
+	this->_fixedPointValue++;	
+	return *this;
+}
+
+Fixed	Fixed::operator ++ (int){
+	Fixed newFixed;
+	
+	newFixed.setRawBits(this->getRawBits());
+	this->_fixedPointValue++;
 	return newFixed;
 }
 
-//pre increment
-Fixed&	Fixed::operator ++ (){
-	
-}
-
-//post increment
-Fixed	Fixed::operator ++ (int){
-
-}
-
-//pre decrement
 Fixed&	Fixed::operator -- (){
-	
+	this->_fixedPointValue--;	
+	return *this;
 }
-
-//post decrement
+ 
 Fixed	Fixed::operator -- (int){
 	Fixed newFixed;
 
 	newFixed.setRawBits(this->getRawBits());
-
+	this->_fixedPointValue--;
+	return newFixed;
 }
 
 bool	Fixed::operator > (const Fixed& otherFixed) const{
@@ -158,12 +163,12 @@ void Fixed::setRawBits(int const raw){
 }
 
 int	Fixed::toInt() const{
-	int i = this->_fixedPointValue >> this->_fractionalBits; // i = this->_fixedPointValue * 256;
+	int i = this->_fixedPointValue >> this->_fractionalBits;
 	return i;
 }
 
 float Fixed::toFloat() const{
-	float f = (float)this->_fixedPointValue / (1 << this->_fractionalBits); // 	f = (float)this->_fixedPointValue / 256.0f;
+	float f = (float)this->_fixedPointValue / (1 << this->_fractionalBits);
 	return f;
 }
 

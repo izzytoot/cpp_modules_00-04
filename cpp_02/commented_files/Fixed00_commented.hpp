@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 12:00:56 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/14 18:31:06 by icunha-t         ###   ########.fr       */
+/*   Created: 2025/08/12 11:59:20 by icunha-t          #+#    #+#             */
+/*   Updated: 2025/08/13 10:45:27 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX01_HPP
-# define EX01_HPP
+#ifndef EX00_HPP
+# define EX00_HPP
 
 #include <string>
 #include <iomanip>
 #include <iostream>
-#include <math.h>
 
 #define RED "\033[0;31m"
 #define GRN "\033[0;32m"  
@@ -29,23 +28,17 @@
 
 class Fixed{
 	private:
-		int _fixedPointValue;
-		static const int _fractionalBits = 8;
-	
-	public:
-		Fixed();
-		Fixed(const Fixed& src);
-		Fixed(const int i); //constructor from int
-		Fixed(const float f); //constructor from float
-		Fixed& 	operator = (const Fixed& otherFixed);
-		~Fixed();
+		int _fixedPointValue; //stores the fixed-point nb value
+		static const int _fractionalBits = 8; //stores the nb of fractional bits
 		
-		int		getRawBits() const;
-		void	setRawBits(int const raw);
-		int		toInt() const;
-		float	toFloat() const;
-};
+	public:
+		Fixed(); //constructor
+		Fixed(const Fixed& src); //copy constructor - creates new instance; src is the Fixed object to copy from
+		Fixed& operator = (const Fixed& otherFixed); //copy assignment operator - updates current instance
+		~Fixed(); //destructor
 
-std::ostream& operator << (std::ostream& output, const Fixed& fixedNbr);
+		int getRawBits() const; // returns the raw value of the fixed point value
+		void setRawBits(int const raw); //sets the raw value of the fixed-point number
+};
 
 #endif

@@ -3,45 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 12:03:48 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/14 19:02:24 by icunha-t         ###   ########.fr       */
+/*   Created: 2025/08/12 12:02:28 by icunha-t          #+#    #+#             */
+/*   Updated: 2025/08/13 10:45:24 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Fixed.hpp"
 
 /******************************************************************************/
-/*                  Constructors, Copy Constructor, Destructor                 */
+/*                  Constructor, Copy Constructor, Destructor                 */
 /******************************************************************************/
+// constructor - creates a Fixed object
+// initiates _fixedPointValue to 0
+// it's called when creating a new object without arguments
 Fixed::Fixed(): _fixedPointValue(0) {
 	std::cout << GRN << "Default constructor called" << RES << std::endl;
 }
 
+// copy constructor - creares a new oject as a copy of an existig one
+// example Fixed b(a);, where a has been previously created
 Fixed::Fixed(const Fixed& src){
 	std::cout << GRN << "Copy constructor called" << RES << std::endl;
-	*this = src;
+	*this = src; //uses copy assignment operator
 }
 
+// destructor - runs automatically when an object goes out of scope or is deleted
+// cleans resources
 Fixed::~Fixed(){
 	std::cout << RED << "Destructor called" << RES << std::endl;
-}
-
-Fixed::Fixed(const int i){
-	std::cout << GRN << "Int constructor called" << RES << std::endl;
-	this->_fixedPointValue = i << this->_fractionalBits; //this->_fixedPointValue = i * 256;
-}
-
-Fixed::Fixed(const float f){
-	std::cout << GRN << "Float constructor called" << RES << std::endl;
-	this->_fixedPointValue = (int)roundf(f * (1 << this->_fractionalBits)); //1<<8 = 256 ; f * 256
 }
 
 /******************************************************************************/
 /*                                Operators                                   */
 /******************************************************************************/
-
+// copy assignment operator - assigns one existing object to another
+// example: Fixed a, b; b = a;
+// Fixed& means that the return value is a reference to a the current object. Without the reference we would be returning a copy
 Fixed& Fixed::operator = (const Fixed& otherFixed){
 	std::cout << YEL << "Copy assignment operator called" << RES << std::endl;
 	if (this != &otherFixed) //checks for self assignment (a == a;)
@@ -49,32 +48,16 @@ Fixed& Fixed::operator = (const Fixed& otherFixed){
 	return (*this);
 }
 
-std::ostream& operator << (std::ostream& output, const Fixed& fixednbr){
-	output << fixednbr.toFloat();
-	return output;
-}
-
 /******************************************************************************/
 /*                              Member Functions                              */
 /******************************************************************************/
 
 int Fixed::getRawBits() const{
-	//std::cout << BCYA << "getRawBits member function called" << RES << std::endl;
+	std::cout << BCYA << "getRawBits member function called" << RES << std::endl;
 	return this->_fixedPointValue;
 }
 
 void Fixed::setRawBits(int const raw){
-	//std::cout << BCYA << "setRawBits member function called" << RES << std::endl;
+	std::cout << BCYA << "setRawBits member function called" << RES << std::endl;
 	this->_fixedPointValue = raw;
-}
-
-int	Fixed::toInt() const{
-	int i = this->_fixedPointValue >> this->_fractionalBits; // i = this->_fixedPointValue * 256;
-	return i;
-}
-
-float Fixed::toFloat() const{
-	float f = (float)this->_fixedPointValue / (1 << this->_fractionalBits); // 	f = (float)this->_fixedPointValue / 256.0f;
-	//std::cout << std::endl << BCYA << "FPV is " << _fixedPointValue << RES << std::endl;
-	return f;
 }

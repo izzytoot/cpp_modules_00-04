@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 11:59:20 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/13 10:45:27 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/14 17:00:46 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,19 @@
 
 class Fixed{
 	private:
-		int _fixedPointValue; //stores the fixed-point nb value
-		static const int _fractionalBits = 8; //stores the nb of fractional bits
+		int _fixedPointValue; //int value of FPN (left to the .)
+		static const int _fractionalBits = 8; //nb of bits of fractional value (right to the .)
 		
 	public:
 		Fixed(); //constructor
-		Fixed(const Fixed& src); //copy constructor - creates new instance; src is the Fixed object to copy from
-		Fixed& operator = (const Fixed& otherFixed); //copy assignment operator - updates current instance
+		Fixed(const Fixed& src); //copy constructor
+		
+		Fixed& operator = (const Fixed& otherFixed); //copy assignment operator
+		
 		~Fixed(); //destructor
 
-		int getRawBits() const; // returns the raw value of the fixed point value
-		void setRawBits(int const raw); //sets the raw value of the fixed-point number
+		int getRawBits() const; //returns the value of _fixedPointValue
+		void setRawBits(int const raw); //allows changing the value of _fixedPointValue
 };
 
 #endif

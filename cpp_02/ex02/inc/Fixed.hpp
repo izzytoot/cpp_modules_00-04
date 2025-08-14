@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:02:04 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/14 12:13:59 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/14 16:10:24 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ class Fixed{
 		Fixed	operator * (const Fixed& otherFixed) const;
 		Fixed	operator / (const Fixed& otherFixed) const;
 		
-		Fixed&	operator ++ (); //pre increment
-		Fixed	operator ++ (int); //post increment
-		Fixed&	operator -- (); //pre decrement
-		Fixed	operator -- (int); //post decrement
+		Fixed&	operator ++ ();
+		Fixed	operator ++ (int);
+		Fixed&	operator -- ();
+		Fixed	operator -- (int);
 
 		bool	operator > (const Fixed& otherFixed) const;
 		bool	operator < (const Fixed& otherFixed) const;
@@ -70,6 +70,6 @@ class Fixed{
 		static const Fixed& max(const Fixed& fixed1, const Fixed& fixed2);
 };
 
-std::ostream operator << (std::ostream& output, Fixed& fixedNbr);
+std::ostream& operator << (std::ostream& output, const Fixed& fixedNbr);
 
 #endif
