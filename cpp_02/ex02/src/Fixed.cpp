@@ -6,7 +6,7 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:03:48 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/13 21:28:35 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/14 12:51:30 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,95 @@ std::ostream& operator << (std::ostream& output, const Fixed& fixednbr){
 	return output;
 }
 
+Fixed	Fixed::operator + (const Fixed& otherFixed) const{
+	Fixed newFixed;
+	
+	newFixed.setRawBits(this->getRawBits() + otherFixed.getRawBits());
+	return newFixed;
+}
+
+Fixed	Fixed::operator - (const Fixed& otherFixed) const{
+	Fixed newFixed;
+	
+	newFixed.setRawBits(this->getRawBits() - otherFixed.getRawBits());
+	return newFixed;
+}
+
+Fixed	Fixed::operator * (const Fixed& otherFixed) const{
+	Fixed newFixed;
+	long long rawNbr = (long long)this->getRawBits() * (long long)otherFixed.getRawBits();
+	
+	newFixed.setRawBits((int)rawNbr >> this->_fractionalBits);
+	return newFixed;
+}
+
+Fixed	Fixed::operator / (const Fixed& otherFixed) const{
+	Fixed newFixed;
+	long long rawNbr = (long long)this->getRawBits() / (long long)otherFixed.getRawBits();
+	
+	newFixed.setRawBits((int)rawNbr << this->_fractionalBits);
+	return newFixed;
+}
+
+//pre increment
+Fixed&	Fixed::operator ++ (){
+	
+}
+
+//post increment
+Fixed	Fixed::operator ++ (int){
+
+}
+
+//pre decrement
+Fixed&	Fixed::operator -- (){
+	
+}
+
+//post decrement
+Fixed	Fixed::operator -- (int){
+	Fixed newFixed;
+
+	newFixed.setRawBits(this->getRawBits());
+
+}
+
+bool	Fixed::operator > (const Fixed& otherFixed) const{
+	if (this->getRawBits() > otherFixed.getRawBits())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator < (const Fixed& otherFixed) const{
+	if (this->getRawBits() < otherFixed.getRawBits())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator >= (const Fixed& otherFixed) const{
+	if (this->getRawBits() >= otherFixed.getRawBits())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator <= (const Fixed& otherFixed) const{
+	if (this->getRawBits() <= otherFixed.getRawBits())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator == (const Fixed& otherFixed) const{
+	if (this->getRawBits() == otherFixed.getRawBits())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator != (const Fixed& otherFixed) const{
+	if (this->getRawBits() != otherFixed.getRawBits())
+		return true;
+	return false;
+}	
+		
 /******************************************************************************/
 /*                              Member Functions                              */
 /******************************************************************************/
@@ -76,4 +165,33 @@ int	Fixed::toInt() const{
 float Fixed::toFloat() const{
 	float f = (float)this->_fixedPointValue / (1 << this->_fractionalBits); // 	f = (float)this->_fixedPointValue / 256.0f;
 	return f;
+}
+
+
+Fixed& Fixed::min(Fixed& v1, Fixed& v2){
+	if (v1 < v2)
+		return v1;
+	else
+		return v2;
+}
+
+const Fixed& Fixed::min(const Fixed& v1, const Fixed& v2){
+	if (v1 < v2)
+		return v1;
+	else
+		return v2;
+}
+
+Fixed& Fixed::max(Fixed& v1, Fixed& v2){
+	if (v1 > v2)
+		return v1;
+	else
+		return v2;
+}
+
+const Fixed& Fixed::max(const Fixed& v1, const Fixed& v2){
+	if (v1 > v2)
+		return v1;
+	else
+		return v2;
 }
