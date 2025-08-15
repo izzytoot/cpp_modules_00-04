@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:41:29 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/15 17:04:15 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/15 17:22:53 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 #include <string>
 #include <iomanip>
 #include <iostream>
+#include "../inc/ClapTrap.hpp"
 
 #define RED "\033[0;31m"
 #define GRN "\033[0;32m"  
@@ -26,31 +27,20 @@
 #define BCYA "\033[36;1m"
 #define RES "\033[0m"
 
-class ClapTrap{
-	private:
-		std::string _name;
-		int _hit;
-		int _energy;
-		int _damage;
+//public ClapTrap means ScavTrap gets all public and protected members of ClapTrap.
 
+class ScavTrap: public ClapTrap {
 	public:
-		ClapTrap(); //default constructor
-		ClapTrap(std::string name); //constructor with name
-		ClapTrap(const ClapTrap& src); //copy constructor
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap& src);
 		
-		ClapTrap& operator= (const ClapTrap& src); //copy assignment operator
+		ScavTrap& operator= (const ScavTrap& src);
 		
-		~ClapTrap(); //destructor
+		~ScavTrap();
 
-		std::string getName();
-		int getHit();
-		int getEnergy();
-		int getDamage();
-
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
-		
+		void attack(std::string target);
+		void guardGate();
 };
 
 #endif
