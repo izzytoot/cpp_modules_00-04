@@ -12,7 +12,7 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 INC_DIR = ./inc/
 SRCS_DIR = ./src/
-SRCS = $(addprefix $(SRCS_DIR), main.cpp ClapTrap.cpp ScavTrap)
+SRCS = $(addprefix $(SRCS_DIR), main.cpp ClapTrap.cpp ScavTrap.cpp)
 TMP = ./tmp
 
 ################################################################################

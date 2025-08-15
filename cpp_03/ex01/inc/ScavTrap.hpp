@@ -6,7 +6,7 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:41:29 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/15 17:22:53 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/15 21:17:09 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 #define RES "\033[0m"
 
 //public ClapTrap means ScavTrap gets all public and protected members of ClapTrap.
+//ScavTrap contains a ClapTrap inside
+//ClapTrap constructor is called first
 
 class ScavTrap: public ClapTrap {
 	public:

@@ -6,7 +6,7 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:41:29 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/15 17:04:03 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/15 21:56:51 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ class ClapTrap{
 		int _energy;
 		int _damage;
 
+	protected:
+		void setHit(int val);
+		void setEnergy(int val);
+		void setDamage(int val);
+		void setName(std::string str);
+
 	public:
 		ClapTrap(); //default constructor
 		ClapTrap(std::string name); //constructor with name
@@ -42,10 +48,10 @@ class ClapTrap{
 		
 		~ClapTrap(); //destructor
 
-		std::string getName();
-		int getHit();
-		int getEnergy();
-		int getDamage();
+		std::string getName() const;
+		int getHit() const;
+		int getEnergy() const;
+		int getDamage() const;
 
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
