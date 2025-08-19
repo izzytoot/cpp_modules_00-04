@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:41:29 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/19 17:26:08 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/19 19:19:15 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-//public ClapTrap means ScavTrap gets all public and protected members of ClapTrap.
-//ScavTrap contains a ClapTrap inside
-//ClapTrap constructor is called first
-
-class ScavTrap: public ClapTrap {
+class FragTrap: virtual public ClapTrap {
 	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap& src);
+		FragTrap();
+		FragTrap(std::string name);
+		FragTrap(const FragTrap& src);
 		
-		ScavTrap& operator= (const ScavTrap& src);
+		FragTrap& operator= (const FragTrap& src);
 		
-		~ScavTrap();
+		~FragTrap();
 
-		void attack(std::string target);
-		void guardGate();
+		void highFivesGuys();
 };
 
 #endif

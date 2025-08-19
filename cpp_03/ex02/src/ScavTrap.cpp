@@ -6,7 +6,7 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/19 15:11:09 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/19 15:42:56 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,6 @@ ScavTrap& ScavTrap::operator= (const ScavTrap& src){
 			  << RES << std::endl;
 	if (this != &src)
 		ClapTrap::operator=(src);
-	// if (this != &src){
-	// 	this->setName(src.getName());
-	// 	this->setHit(src.getHit());
-	// 	this->setEnergy(src.getEnergy());
-	// 	this->setDamage(src.getDamage());
-	//}
 	return *this;
 }
 

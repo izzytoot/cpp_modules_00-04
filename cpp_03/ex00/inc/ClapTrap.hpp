@@ -6,7 +6,7 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:41:29 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/15 17:04:15 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/19 14:35:55 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #define RED "\033[0;31m"
 #define GRN "\033[0;32m"  
 #define YEL "\033[0;33m"
+#define CYA "\033[36m" 
 #define BRED "\033[31;1m"
 #define BGRN "\033[32;1m"
 #define BYEL "\033[33;1m"

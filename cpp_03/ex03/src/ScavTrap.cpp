@@ -6,7 +6,7 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/19 15:11:09 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/19 17:58:23 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name){
 			  << RES << std::endl;
 }
 
-//here we don't copy this = src because it would be reduntant. It has already been done in the base class copy constructor ClapTrap(src).
 ScavTrap::ScavTrap(const ScavTrap& src): ClapTrap(src) {
 	std::cout << BGRN
 			  << "ScavTrap "
@@ -72,12 +71,6 @@ ScavTrap& ScavTrap::operator= (const ScavTrap& src){
 			  << RES << std::endl;
 	if (this != &src)
 		ClapTrap::operator=(src);
-	// if (this != &src){
-	// 	this->setName(src.getName());
-	// 	this->setHit(src.getHit());
-	// 	this->setEnergy(src.getEnergy());
-	// 	this->setDamage(src.getDamage());
-	//}
 	return *this;
 }
 
