@@ -6,7 +6,7 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/19 17:23:45 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/20 17:54:16 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ FragTrap::FragTrap(): ClapTrap() {
 	setEnergy(100);
 	setDamage(30);
 	std::cout << BGRN 
-			  << "Nameless FragTrap was constructed." 
+			  << "Default FragTrap was constructed." 
 			  << RES << std::endl;
 }
 
@@ -30,7 +30,7 @@ FragTrap::FragTrap(std::string name): ClapTrap(name){
 	setEnergy(100);
 	setDamage(30);
 	std::cout << BGRN 
-			  << "FragTrap " 
+			  << "Default " 
 			  << name 
 			  << " was constructed." 
 			  << RES << std::endl;
@@ -45,19 +45,9 @@ FragTrap::FragTrap(const FragTrap& src): ClapTrap(src) {
 }
 				
 FragTrap::~FragTrap(){
-	if (getName() != "to be named"){
 		std::cout << BRED 
-				  << "FragTrap " 
-				  << getName() 
-				  << " was destroyed." 
-				  << RES << std::endl;
-
-	}
-	else{
-		std::cout << BRED 
-				 << "Nameless FragTrap was destroyed." 
+				 << "FragTrap was destroyed." 
 				 << RES << std::endl;
-	}
 }
 /******************************************************************************/
 /*                                Operators                                   */

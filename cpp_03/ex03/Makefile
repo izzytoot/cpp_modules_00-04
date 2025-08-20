@@ -4,7 +4,7 @@
 
 NAME = ex03
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -g -std=c++98
+CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -Wshadow -Wno-shadow 
 
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
@@ -12,7 +12,7 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 INC_DIR = ./inc/
 SRCS_DIR = ./src/
-SRCS = $(addprefix $(SRCS_DIR), main.cpp Fixed.cpp)
+SRCS = $(addprefix $(SRCS_DIR), main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp)
 TMP = ./tmp
 
 ################################################################################

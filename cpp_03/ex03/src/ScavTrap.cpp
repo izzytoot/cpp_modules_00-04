@@ -6,7 +6,7 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/19 17:58:23 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/20 17:54:30 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(): ClapTrap() {
 	setEnergy(50);
 	setDamage(20);
 	std::cout << BGRN 
-			  << "Nameless ScavTrap was constructed." 
+			  << "Default ScavTrap was constructed." 
 			  << RES << std::endl;
 }
 
@@ -45,19 +45,9 @@ ScavTrap::ScavTrap(const ScavTrap& src): ClapTrap(src) {
 }
 				
 ScavTrap::~ScavTrap(){
-	if (getName() != "to be named"){
 		std::cout << BRED 
-				  << "ScavTrap " 
-				  << getName() 
-				  << " was destroyed." 
-				  << RES << std::endl;
-
-	}
-	else{
-		std::cout << BRED 
-				 << "Nameless ScavTrap was destroyed." 
+				 << "ScavTrap was destroyed." 
 				 << RES << std::endl;
-	}
 }
 /******************************************************************************/
 /*                                Operators                                   */

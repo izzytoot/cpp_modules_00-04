@@ -6,93 +6,47 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:59 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/19 17:46:35 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/20 17:50:18 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../inc/DiamondTrap.hpp"
 #include "../inc/FragTrap.hpp"
+#include "../inc/ScavTrap.hpp"
 
 int main(){
 	std::cout << std::endl;
-	std::cout <<  BCYA << "*** Testing ClapTrap ***" << RES << std::endl;
+	std::cout <<  BCYA << "*** Creating a DiamondTrap to test chaining***" << RES << std::endl;
 	std::cout << std::endl;
 	
-	ClapTrap isa("isabel");
-	std::cout << isa.getName() << " has the following points: "
-			  << isa.getHit() <<" hit points, "
-			  << isa.getEnergy() <<" energy points and "
-			  << isa.getDamage() <<" damage points." 
+	DiamondTrap mia("Mia");
+
+	std::cout << std::endl;
+	std::cout <<  BCYA << "*** Testing that attributes were initialized correctly ***" << RES << std::endl;
+	std::cout << std::endl;
+	
+	std::cout << mia.printName() << " has the following points: "
+			  << mia.getHit() << " hit points, "
+			  << mia.getEnergy() << " energy points, "
+			  << mia.getDamage() << " damage points."
 			  << std::endl;
 
-	std::cout << std::endl << BCYA << "*** Testing member functions with valid values ***" << RES << std::endl;
-	isa.attack("Filipe");
-	isa.takeDamage(5);
-	isa.beRepaired(1);
-
-	std::cout << std::endl << BCYA << "*** Testing member functions with invalid or too high values ***" << RES << std::endl;
-	isa.attack("");
-	isa.takeDamage(-5);
-	isa.beRepaired(-5);
-	isa.takeDamage(8);
-	isa.beRepaired(5);
-	
+	std::cout << std::endl;
+	std::cout <<  BCYA << "*** Testing that attack() comes from ScavTrap and the others come from ClapTrap ***" << RES << std::endl;
 	std::cout << std::endl;
 
-	ClapTrap rodri("rodrigo");
-	std::cout << rodri.getName() << " has the following points: "
-			  << rodri.getHit() <<" hit points, "
-			  << rodri.getEnergy() <<" energy points and "
-			  << rodri.getDamage() <<" damage points." 
-			  << std::endl;
-	
-	std::cout << std::endl << BCYA << "*** Testing repair after spending all energy points on attacks ***" << RES << std::endl;
-	
-	for (int i = 0; i < 10; i++)
-		rodri.attack("Philip");
-	rodri.attack("one more?");
-	rodri.beRepaired(5);
-
-	std::cout << std::endl;
-	std::cout <<  BCYA << "*** Testing FragTrap ***" << RES << std::endl;
-	std::cout << std::endl;
-
-	FragTrap biscoito("Biscoito");
-	std::cout << biscoito.getName() << " has the following points: "
-			  << biscoito.getHit() << " hit points, "
-			  << biscoito.getEnergy() << " energy points, "
-			  << biscoito.getDamage() << " damage points."
-			  << std::endl;
-
-	std::cout << std::endl << BCYA << "*** Testing highFives ability ***" << RES << std::endl;
-	biscoito.highFivesGuys();
-	
-	std::cout << std::endl << BCYA << "*** Testing member functions with valid values ***" << RES << std::endl;
-	biscoito.attack("Pipes");
-	biscoito.takeDamage(99);
-	biscoito.beRepaired(3);
-
-	std::cout << std::endl << BCYA << "*** Testing member functions with invalid or too high values ***" << RES << std::endl;
-	biscoito.attack("");
-	biscoito.takeDamage(-5);
-	biscoito.beRepaired(-5);
-	biscoito.takeDamage(500); 
-	biscoito.beRepaired(5);
+	mia.attack("Sornas");
+	std::cout << BYEL << "DiamondTrap " << mia.printName() << " is repaired." << RES << std::endl;
+	mia.beRepaired(50);
+	std::cout << BYEL << "DiamondTrap " << mia.printName() << " takes damage." << RES << std::endl;
+	mia.takeDamage(500);
 	
 	std::cout << std::endl;
-
-	FragTrap pascal("Pascal");
-	std::cout << pascal.getName() << " has the following points: "
-			  << pascal.getHit() <<" hit points, "
-			  << pascal.getEnergy() <<" energy points and "
-			  << pascal.getDamage() <<" damage points." << RES << std::endl;
-	
-	std::cout << std::endl << BCYA << "*** Testing repair and attack after spending all energy points on attacks ***" << RES << std::endl;
-	
-	for (int i = 0; i < 100; i++)
-		pascal.attack("Sornas");
-	pascal.attack("one more?");
-	pascal.beRepaired(10);
-
+	std::cout <<  BCYA << "*** Testing whoAmI ***" << RES << std::endl;
 	std::cout << std::endl;
+
+	mia.whoAmI();
+	std::cout << std::endl;
+
 	return 0;
 }

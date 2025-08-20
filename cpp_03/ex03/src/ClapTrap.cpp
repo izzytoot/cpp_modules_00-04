@@ -6,7 +6,7 @@
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/19 15:06:49 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/20 17:29:21 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 ClapTrap::ClapTrap(): _name("to be named"), _hit(10), _energy(10), _damage(0) {
 	std::cout << BGRN 
-			  << "Nameless ClapTrap was constructed." 
+			  << "Default ClapTrap was constructed." 
 			  << RES 
 			  << std::endl;
 }
@@ -32,26 +32,18 @@ ClapTrap::ClapTrap(std::string name): _name(name), _hit(10), _energy(10), _damag
 }
 
 ClapTrap::ClapTrap(const ClapTrap& src){
+	*this = src;
 	std::cout << BGRN
 			  << "ClapTrap " 
-			  << src._name 
+			  << this->_name
 			  << " was constructed and copied." 
 			  << RES << std::endl;
-	
-	*this = src;
 }
 
 ClapTrap::~ClapTrap() {
-	if (_name != "to be named")
-		std::cout << BRED 
-				  << "ClapTrap "
-				  << _name 
-				  << " was destroyed." 
-				  << RES << std::endl;
-	else
-		std::cout << BRED 
-				  << "nameless ClapTrap was destroyed." 
-				  << RES << std::endl;
+	std::cout << BRED 
+			  << "ClapTrap was destroyed." 
+			  << RES << std::endl;
 }
 
 /******************************************************************************/
