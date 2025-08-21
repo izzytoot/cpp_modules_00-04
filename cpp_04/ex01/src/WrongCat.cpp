@@ -1,0 +1,59 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/21 13:00:48 by isabeltooti       #+#    #+#             */
+/*   Updated: 2025/08/21 18:38:21 by isabeltooti      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "WrongCat.hpp"
+
+/******************************************************************************/
+/*                  Constructors, Copy Constructor, Destructor                 */
+/******************************************************************************/
+
+WrongCat::WrongCat(): WrongAnimal(){
+	_type = "WrongCat";
+	std::cout << BGRN
+			  << "WrongCat was constructed"
+			  << RES << std::endl;
+}
+
+WrongCat::WrongCat(WrongCat& src): WrongAnimal(src){
+	*this = src;
+	std::cout << BGRN
+			  << "WrongCat was copied from src and constructed"
+			  << RES << std::endl;
+}
+
+WrongCat::~WrongCat(){
+	std::cout << BRED
+			  << "WrongCat was destructed"
+			  << RES << std::endl;
+}
+
+/******************************************************************************/
+/*                                Operators                                   */
+/******************************************************************************/
+
+WrongCat& WrongCat::operator= (const WrongCat& src){
+	if (this != &src){
+		this->_type = src._type;
+	}
+	std::cout << BGRN
+			  << "WrongCat copied from src into an existing WrongCat"
+			  << RES << std::endl;
+	return *this;
+}
+
+/******************************************************************************/
+/*                              Member Functions                              */
+/******************************************************************************/
+
+void WrongCat::makeSound() const{
+	std::cout << "wrong miau miau" << std::endl;
+}

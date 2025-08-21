@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 11:41:29 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/21 11:43:43 by isabeltooti      ###   ########.fr       */
+/*   Created: 2025/08/21 13:00:16 by isabeltooti       #+#    #+#             */
+/*   Updated: 2025/08/21 18:55:23 by isabeltooti      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 #include <string>
 #include <iomanip>
@@ -27,37 +27,20 @@
 #define BCYA "\033[36;1m"
 #define RES "\033[0m"
 
-class ClapTrap{
-	private:
-		std::string _name;
-		int _hit;
-		int _energy;
-		int _damage;
-
+class WrongAnimal {
 	protected:
-		void setHit(int val);
-		void setEnergy(int val);
-		void setDamage(int val);
-		void setName(std::string str);
-
+		std::string _type;
 	public:
-		ClapTrap(); //default constructor
-		ClapTrap(std::string name); //constructor with name
-		ClapTrap(const ClapTrap& src); //copy constructor
+		WrongAnimal();
+		WrongAnimal(WrongAnimal& src);
 		
-		ClapTrap& operator= (const ClapTrap& src); //copy assignment operator
-		
-		~ClapTrap(); //destructor
+		WrongAnimal& operator= (const WrongAnimal& src);
 
-		std::string getName() const;
-		int getHit() const;
-		int getEnergy() const;
-		int getDamage() const;
+		virtual ~WrongAnimal();
 
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
-		
+		//not virtual, so this will trump WrongCat's
+		void makeSound() const;
+		std::string getType() const;
 };
 
 #endif

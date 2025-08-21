@@ -2,7 +2,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME = ex03
+NAME = ex00
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -Wshadow #-Wno-shadow 
 
@@ -12,7 +12,7 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -Wshadow #-Wno-shadow
 
 INC_DIR = ./inc/
 SRCS_DIR = ./src/
-SRCS = $(addprefix $(SRCS_DIR), main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp)
+SRCS = $(addprefix $(SRCS_DIR), main.cpp Dog.cpp Cat.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp)
 TMP = ./tmp
 
 ################################################################################
