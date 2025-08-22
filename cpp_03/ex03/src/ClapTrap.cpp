@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/20 17:29:21 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 16:26:24 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void ClapTrap::setDamage(int val){
 /*                              Member Functions                              */
 /******************************************************************************/
 
-void ClapTrap::attack(const std::string& target){
+void ClapTrap::attack(std::string target){
 	//check if empty target
 	if (target.empty()){
 		std::cout << RED 

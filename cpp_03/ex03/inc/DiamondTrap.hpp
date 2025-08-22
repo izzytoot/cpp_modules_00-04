@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:41:29 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/22 12:03:51 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/22 16:25:38 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ class DiamondTrap: public FragTrap, public ScavTrap {
 		~DiamondTrap();
 
 		void attack(std::string target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
 		void whoAmI();
 		std::string printName();
 };
