@@ -7,10 +7,5 @@
 | [CPP_02](https://github.com/izzytoot/cpp_modules/tree/main/cpp_02) | Ad-hoc polymorphism, operator overloading and the Orthodox Canonical class form | (00) My First Class in Orthodox Canonical Form, (01) Towards a more useful fixed-point number class, (02) Now we’re talking | done | C++ | 80 / 100 :white_check_mark: |
 | [CPP_03](https://github.com/izzytoot/cpp_modules/tree/main/cpp_03) | Inheritance | (00) Aaaaand... OPEN, (01) Serena, my love!, (02) Repetitive work, (03) Now it’s weird! | ongoing | C++ | 100 / 100 :white_check_mark: |
 | [CPP_04](https://github.com/izzytoot/cpp_modules/tree/main/cpp_04)| Subtype Polymorphism, Abstract Classes, and Interfaces | (00) Polymorphism, (01) I don’t want to set the world on fire, (02) Abstract class | To be done | C++ | :soon: / :question: |
-| [CPP_05] | ... | To be done | C++ | :soon: / :question: |
-| [CPP_06] | ... | To be done | C++ | :soon: / :question: |
-| [CPP_07] | ... | To be done | C++ | :soon: / :question: |
-| [CPP_08] | ... | To be done | C++ | :soon: / :question: |
-| [CPP_09] | ... | To be done | C++ | :soon: / :question: |
 
 </div>
