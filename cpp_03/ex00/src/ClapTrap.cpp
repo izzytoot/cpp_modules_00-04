@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/19 15:03:07 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 15:41:17 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ClapTrap::ClapTrap(): _name("to be named"), _hit(10), _energy(10), _damage(0) {
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hit(10), _energy(10), _damage(0) {
 	std::cout << BGRN 
-			  << "ClapTrap" 
+			  << "ClapTrap " 
 			  << _name 
 			  << " was constructed" 
 			  << RES << std::endl;
@@ -57,7 +57,7 @@ ClapTrap::~ClapTrap() {
 ClapTrap& ClapTrap::operator= (const ClapTrap& src){
 	std::cout << BYEL 
 			  << src._name 
-			  << " was copyed into existing ClapTrap" 
+			  << " was copied into existing ClapTrap" 
 			  << RES << std::endl;
 	if (this != &src){
 		this->_name = src._name;

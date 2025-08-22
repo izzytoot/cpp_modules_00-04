@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/19 15:06:49 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 11:43:24 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 ClapTrap::ClapTrap(): _name("to be named"), _hit(10), _energy(10), _damage(0) {
 	std::cout << BGRN 
 			  << "Nameless ClapTrap was constructed." 
-			  << RES 
-			  << std::endl;
+			  << RES << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hit(10), _energy(10), _damage(0) {
@@ -37,7 +36,6 @@ ClapTrap::ClapTrap(const ClapTrap& src){
 			  << src._name 
 			  << " was constructed and copied." 
 			  << RES << std::endl;
-	
 	*this = src;
 }
 

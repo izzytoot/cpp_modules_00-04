@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/20 17:54:16 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 15:41:59 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ FragTrap::FragTrap(std::string name): ClapTrap(name){
 	setEnergy(100);
 	setDamage(30);
 	std::cout << BGRN 
-			  << "Default " 
+			  << "FragTrap " 
 			  << name 
 			  << " was constructed." 
 			  << RES << std::endl;
@@ -70,7 +70,7 @@ FragTrap& FragTrap::operator= (const FragTrap& src){
 
 void	FragTrap::highFivesGuys(){
 	std::cout << "🙌 give me a high-five!! 🙌"
-			  << " , said "
+			  << ", said "
 			  << this->getName()
 			  << std::endl;
 }

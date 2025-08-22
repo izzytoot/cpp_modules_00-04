@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:41:29 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/19 19:19:22 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 12:31:12 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
-
-//public ClapTrap means ScavTrap gets all public and protected members of ClapTrap.
-//ScavTrap contains a ClapTrap inside
-//ClapTrap constructor is called first
 
 class ScavTrap: virtual public ClapTrap {
 	public:

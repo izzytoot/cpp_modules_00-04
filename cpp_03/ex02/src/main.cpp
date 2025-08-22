@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:59 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/19 17:46:35 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 12:00:01 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(){
 	std::cout <<  BCYA << "*** Testing ClapTrap ***" << RES << std::endl;
 	std::cout << std::endl;
 	
-	ClapTrap isa("isabel");
+	ClapTrap isa("Isabel");
 	std::cout << isa.getName() << " has the following points: "
 			  << isa.getHit() <<" hit points, "
 			  << isa.getEnergy() <<" energy points and "
@@ -38,7 +38,7 @@ int main(){
 	
 	std::cout << std::endl;
 
-	ClapTrap rodri("rodrigo");
+	ClapTrap rodri("Rodrigo");
 	std::cout << rodri.getName() << " has the following points: "
 			  << rodri.getHit() <<" hit points, "
 			  << rodri.getEnergy() <<" energy points and "

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:41:29 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/19 17:28:54 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 12:24:16 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 class FragTrap: public ClapTrap {
 	public:

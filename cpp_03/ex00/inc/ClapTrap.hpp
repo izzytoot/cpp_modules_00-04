@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:41:29 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/19 14:35:55 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 11:35:58 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ class ClapTrap{
 		int _damage;
 
 	public:
-		ClapTrap(); //default constructor
-		ClapTrap(std::string name); //constructor with name
-		ClapTrap(const ClapTrap& src); //copy constructor
+		ClapTrap();
+		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap& src);
 		
-		ClapTrap& operator= (const ClapTrap& src); //copy assignment operator
+		ClapTrap& operator= (const ClapTrap& src);
 		
-		~ClapTrap(); //destructor
+		~ClapTrap();
 
 		std::string getName();
 		int getHit();

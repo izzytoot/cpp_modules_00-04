@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/20 17:51:54 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 12:31:34 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), FragT
 			  << RES << std::endl;
 }
 
-//we call the copy constructors of the bases so each base copies the corresponding state from src
-//we are reusing src's initialization
 DiamondTrap::DiamondTrap(const DiamondTrap& src): ClapTrap(src), FragTrap(), ScavTrap() {
-	*this = src; //we need to make sure the unique member _name is also copied
+	*this = src;
 	std::cout << BGRN
 			  << "DiamondTrap "
 			  << src._name
@@ -63,7 +61,6 @@ DiamondTrap::~DiamondTrap(){
 /******************************************************************************/
 
 DiamondTrap& DiamondTrap::operator= (const DiamondTrap& src){
-	//copy each part of ClapTrap, FragTap, ScavTrap and DiamondTrap 
 	if (this != &src){
 		this->_name = src._name;
 		this->setHit(src.getHit());
