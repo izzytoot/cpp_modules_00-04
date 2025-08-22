@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/22 18:28:52 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/22 19:00:34 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@
 #define BCYA "\033[36;1m"
 #define RES "\033[0m"
 
-class Animal{
+class AAnimal{
 	protected:
 		std::string _type;
 	public:
-		Animal();
-		Animal(const Animal& src);
+		AAnimal();
+		AAnimal(const AAnimal& src);
 		
-		Animal& operator= (const Animal& src);
+		AAnimal& operator= (const AAnimal& src);
 
-		virtual ~Animal();
+		virtual ~AAnimal();
 
 		std::string getType() const;
-		virtual void makeSound() const;
+		virtual void makeSound() const = 0; //impossible to instantiate - abrstract
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 13:00:48 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/21 18:38:21 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 18:30:42 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ WrongCat::WrongCat(): WrongAnimal(){
 			  << RES << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat& src): WrongAnimal(src){
+WrongCat::WrongCat(const WrongCat& src): WrongAnimal(src){
 	*this = src;
 	std::cout << BGRN
 			  << "WrongCat was copied from src and constructed"
@@ -32,7 +32,7 @@ WrongCat::WrongCat(WrongCat& src): WrongAnimal(src){
 
 WrongCat::~WrongCat(){
 	std::cout << BRED
-			  << "WrongCat was destructed"
+			  << "WrongCat was destroyed"
 			  << RES << std::endl;
 }
 

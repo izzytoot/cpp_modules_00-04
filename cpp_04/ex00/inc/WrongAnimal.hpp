@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 13:00:16 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/21 18:55:23 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 18:30:24 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class WrongAnimal {
 		std::string _type;
 	public:
 		WrongAnimal();
-		WrongAnimal(WrongAnimal& src);
+		WrongAnimal(const WrongAnimal& src);
 		
 		WrongAnimal& operator= (const WrongAnimal& src);
 

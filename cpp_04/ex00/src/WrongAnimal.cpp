@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 18:19:33 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/21 18:37:36 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 18:30:40 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ WrongAnimal::WrongAnimal(): _type("no WrongAnimal type"){
 			  << RES << std::endl;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal& src){
+WrongAnimal::WrongAnimal(const WrongAnimal& src){
 	*this = src;
 	std::cout << BGRN
 			  << "WrongAnimal was copied from src and constructed"
@@ -31,7 +31,7 @@ WrongAnimal::WrongAnimal(WrongAnimal& src){
 
 WrongAnimal::~WrongAnimal(){
 	std::cout << BRED
-			  << "WrongAnimal was destructed"
+			  << "WrongAnimal was destroyed"
 			  << RES << std::endl;
 }
 

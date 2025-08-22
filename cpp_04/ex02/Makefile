@@ -12,7 +12,7 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -Wshadow -Wno-shadow
 
 INC_DIR = ./inc/
 SRCS_DIR = ./src/
-SRCS = $(addprefix $(SRCS_DIR), main.cpp)
+SRCS = $(addprefix $(SRCS_DIR), main.cpp Animal.cpp Brain.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp)
 TMP = ./tmp
 
 ################################################################################

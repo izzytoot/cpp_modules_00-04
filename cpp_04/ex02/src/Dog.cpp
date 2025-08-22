@@ -1,50 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 12:53:20 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/22 18:30:35 by icunha-t         ###   ########.fr       */
+/*   Created: 2025/08/21 12:52:47 by isabeltooti       #+#    #+#             */
+/*   Updated: 2025/08/22 19:01:40 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Cat.hpp"
+#include "../inc/Dog.hpp"
 
 /******************************************************************************/
 /*                  Constructors, Copy Constructor, Destructor                 */
 /******************************************************************************/
 
-Cat::Cat(): Animal(){
-	this->_type = "Cat";
+Dog::Dog(): AAnimal(){
 	std::cout << BGRN
-			  << "Cat was constructed."
+			  << "Dog was constructed."
+			  << RES << std::endl;
+	this->_type = "Dog";
+	this->_brain = new Brain();
+}
+
+Dog::Dog(const Dog& src): AAnimal(src){
+	this->_type = src._type;
+	this->_brain = new Brain(*src._brain); // deep copy of brain
+	std::cout << BGRN
+			  << "Dog was copied and constructed."
 			  << RES << std::endl;
 }
 
-Cat::Cat(const Cat& src): Animal(src){
-	*this = src;
-	std::cout << BGRN
-			  << "Cat was copied and constructed."
-			  << RES << std::endl;
-}
-
-Cat::~Cat(){
+Dog::~Dog(){
+	delete _brain;
 	std::cout << BRED
-			  << "Cat was destroyed."
+			  << "Dog was destroyed."
 			  << RES << std::endl;
 }
 
 /******************************************************************************/
 /*                                Operators                                   */
 /******************************************************************************/
-Cat& Cat::operator= (const Cat& src){
+Dog& Dog::operator= (const Dog& src){
 	if (this != &src){
 		this->_type = src._type;
+		delete this->_brain;
+		this->_brain = new Brain(*src._brain); //deep copy of brain
 	}
 	std::cout << BYEL
-			  << "Cat src was copied into existing Cat obj."
+			  << "Dog was copied into existing Dog."
 			  << RES << std::endl;
 	return *this;
 }
@@ -53,6 +58,10 @@ Cat& Cat::operator= (const Cat& src){
 /*                              Member Functions                              */
 /******************************************************************************/
 
-void Cat::makeSound() const{
-	std::cout << "miau miau" << std::endl;
+void Dog::makeSound() const{
+	std::cout << "wof wof" << std::endl;
+}
+
+Brain* Dog::getBrain() const{
+	return this->_brain;
 }

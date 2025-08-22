@@ -1,50 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 12:53:20 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/22 18:30:35 by icunha-t         ###   ########.fr       */
+/*   Created: 2025/08/21 12:53:05 by isabeltooti       #+#    #+#             */
+/*   Updated: 2025/08/22 19:01:20 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Cat.hpp"
+#include "../inc/Animal.hpp"
 
 /******************************************************************************/
 /*                  Constructors, Copy Constructor, Destructor                 */
 /******************************************************************************/
-
-Cat::Cat(): Animal(){
-	this->_type = "Cat";
+AAnimal::AAnimal(): _type("no Animal type"){
 	std::cout << BGRN
-			  << "Cat was constructed."
+			  << "Animal was constructed"
 			  << RES << std::endl;
 }
 
-Cat::Cat(const Cat& src): Animal(src){
+AAnimal::AAnimal(const AAnimal& src){
 	*this = src;
 	std::cout << BGRN
-			  << "Cat was copied and constructed."
+			  << "Animal was copied and constructed"
 			  << RES << std::endl;
 }
 
-Cat::~Cat(){
+AAnimal::~AAnimal(){
 	std::cout << BRED
-			  << "Cat was destroyed."
+			  << "Animal was destroyed"
 			  << RES << std::endl;
 }
 
 /******************************************************************************/
 /*                                Operators                                   */
 /******************************************************************************/
-Cat& Cat::operator= (const Cat& src){
+
+AAnimal& AAnimal::operator= (const AAnimal& src){
 	if (this != &src){
 		this->_type = src._type;
 	}
 	std::cout << BYEL
-			  << "Cat src was copied into existing Cat obj."
+			  << "Animal was copied and assigned into existing Animal"
 			  << RES << std::endl;
 	return *this;
 }
@@ -53,6 +52,7 @@ Cat& Cat::operator= (const Cat& src){
 /*                              Member Functions                              */
 /******************************************************************************/
 
-void Cat::makeSound() const{
-	std::cout << "miau miau" << std::endl;
+std::string AAnimal::getType() const{
+	return this->_type;
 }
+

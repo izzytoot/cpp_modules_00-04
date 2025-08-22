@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 13:02:32 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/21 18:38:08 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 18:30:27 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class WrongCat: public WrongAnimal {
 	public:
 		WrongCat();
-		WrongCat(WrongCat& src);
+		WrongCat(const WrongCat& src);
 		
 		WrongCat& operator= (const WrongCat& src);
 

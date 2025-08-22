@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 12:52:47 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/21 17:34:56 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 18:30:37 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Dog::Dog(): Animal(){
 			  << RES << std::endl;
 }
 
-Dog::Dog(Dog& src): Animal(src){
+Dog::Dog(const Dog& src): Animal(src){
 	*this = src;
 	std::cout << BGRN
 			  << "Dog was copied and constructed."
@@ -32,7 +32,7 @@ Dog::Dog(Dog& src): Animal(src){
 
 Dog::~Dog(){
 	std::cout << BRED
-			  << "Dog was destructed."
+			  << "Dog was destroyed."
 			  << RES << std::endl;
 }
 

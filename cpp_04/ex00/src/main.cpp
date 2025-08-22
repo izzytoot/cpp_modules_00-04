@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/21 18:11:56 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 16:49:46 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ std::cout << std::endl
 		  << RES << std::endl << std::endl;
 
 std::cout << BYEL
-		  << " ---- New object: Animal meta ----"
+		  << " ---- New object: Animal ----"
 		  << RES << std::endl;
 const Animal* meta = new Animal();
 
 std::cout << std::endl
 		  << BYEL
-		  << " ---- New object: Dog j ----"
+		  << " ---- New object: Dog ----"
 		  << RES << std::endl;
 const Animal* j = new Dog();
 
 std::cout << std::endl
 		  << BYEL
-		  << " ---- New object: Cat i ----"
+		  << " ---- New object: Cat ----"
 		  << RES << std::endl;
 const Animal* i = new Cat();
 
@@ -45,11 +45,11 @@ std::cout << std::endl
 		  << RES << std::endl;
 		  
 std::cout << CYA
-		  << "for Dog j, type is: "
+		  << "for Dog, type is: "
 		  << RES;
 std::cout << j->getType() << " " << std::endl;
 std::cout << CYA
-		  << "for Cat i, type is: "
+		  << "for Cat, type is: "
 		  << RES;
 std::cout << i->getType() << " " << std::endl;
 
@@ -59,31 +59,31 @@ std::cout << std::endl
 		  << RES << std::endl;
 
 std::cout << CYA
-		  << "for Cat i, sound is: "
+		  << "for Cat, sound is: "
 		  << RES;
 i->makeSound();
 std::cout << CYA
-		  << "for Dog j, sound is: "
+		  << "for Dog, sound is: "
 		  << RES;	
 j->makeSound();
 std::cout << CYA
-		  << "for Animal meta, sound is: "
+		  << "for Animal, sound is: "
 		  << RES;	
 meta->makeSound();
 
 std::cout <<std::endl
 		  << CYA
-		  << "deleting Animal meta: "
+		  << "deleting Animal: "
 		  << RES << std:: endl;
 delete meta;
 std::cout <<std::endl
 		  << CYA
-		  << "deleting Cat i: "
+		  << "deleting Cat: "
 		  << RES << std:: endl;
 delete i;
 std::cout <<std::endl
 		  << CYA
-		  << "deleting Dog j: "
+		  << "deleting Dog: "
 		  << RES << std:: endl;
 delete j;
 

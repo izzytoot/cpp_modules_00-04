@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 11:48:44 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/21 17:34:25 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 18:27:00 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,21 @@
 # define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat: public Animal{
+	private:
+		Brain* _brain;
 	public:
 		Cat();
-		Cat(Cat& src);
+		Cat(const Cat& src);
 
 		Cat& operator= (const Cat& src);
 
 		~Cat();
 
 		void makeSound() const;
+		Brain* getBrain() const;
 };
 
 #endif

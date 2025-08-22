@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 12:53:05 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/21 18:28:15 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 18:30:32 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Animal::Animal(): _type("no Animal type"){
 			  << RES << std::endl;
 }
 
-Animal::Animal(Animal& src){
+Animal::Animal(const Animal& src){
 	*this = src;
 	std::cout << BGRN
 			  << "Animal was copied from src and constructed"
@@ -30,7 +30,7 @@ Animal::Animal(Animal& src){
 
 Animal::~Animal(){
 	std::cout << BRED
-			  << "Animal was destructed"
+			  << "Animal was destroyed"
 			  << RES << std::endl;
 }
 

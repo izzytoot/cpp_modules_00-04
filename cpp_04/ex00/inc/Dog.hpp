@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 11:47:41 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/21 17:34:46 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 18:30:21 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Dog: public Animal{
 	public:
 		Dog();
-		Dog(Dog& src);
+		Dog(const Dog& src);
 
 		Dog& operator= (const Dog& src);
 

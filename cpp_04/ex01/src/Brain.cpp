@@ -1,50 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 12:53:20 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/22 18:30:35 by icunha-t         ###   ########.fr       */
+/*   Created: 2025/08/22 17:14:55 by icunha-t          #+#    #+#             */
+/*   Updated: 2025/08/22 18:29:38 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Cat.hpp"
+#include "Brain.hpp"
 
 /******************************************************************************/
 /*                  Constructors, Copy Constructor, Destructor                 */
 /******************************************************************************/
 
-Cat::Cat(): Animal(){
-	this->_type = "Cat";
+Brain::Brain(){
+	for(int i = 0; i < 100; i++)
+		_ideas[i] = "";
 	std::cout << BGRN
-			  << "Cat was constructed."
+		  	  << "A new Brain full of empty ideas was constructed."
 			  << RES << std::endl;
 }
 
-Cat::Cat(const Cat& src): Animal(src){
-	*this = src;
+Brain::Brain(const Brain& src){
+	for(int i = 0; i < 100; i++)
+		this->_ideas[i] = src._ideas[i];
 	std::cout << BGRN
-			  << "Cat was copied and constructed."
+			  << "A Brain was copied and constructed."
 			  << RES << std::endl;
 }
 
-Cat::~Cat(){
+Brain::~Brain(){
 	std::cout << BRED
-			  << "Cat was destroyed."
+			  << "Brain was destroyed."
 			  << RES << std::endl;
 }
 
 /******************************************************************************/
 /*                                Operators                                   */
 /******************************************************************************/
-Cat& Cat::operator= (const Cat& src){
+
+Brain& Brain::operator= (const Brain& src){
 	if (this != &src){
-		this->_type = src._type;
+		for(int i = 0; i < 100; i++)
+			this->_ideas[i] = src._ideas[i];
 	}
 	std::cout << BYEL
-			  << "Cat src was copied into existing Cat obj."
+			  << "Brain was copied into existing Brain."
 			  << RES << std::endl;
 	return *this;
 }
@@ -53,6 +57,36 @@ Cat& Cat::operator= (const Cat& src){
 /*                              Member Functions                              */
 /******************************************************************************/
 
-void Cat::makeSound() const{
-	std::cout << "miau miau" << std::endl;
+void Brain::setIdeas(int nb, std::string idea){
+	std::cout << BYEL
+			  << "Setting a new idea..."
+			  << RES << std::endl;
+	if(nb < 0 || nb > 99){
+		std::cout << BRED
+			  << "Error: Idea number not valid."
+			  << RES << std::endl;
+	}
+	else{
+		this->_ideas[nb] = idea;
+		std::cout << "Idea number " << nb 
+				  << " was set to: " << idea << "."
+				  << std::endl;
+	}	
+}
+
+std::string Brain::getIdea(int nb) const{
+	std::cout << BYEL
+			  << "Getting an idea from Brain..."
+			  << RES << std::endl;
+	if(nb < 0 || nb > 99){
+		std::cout << BRED
+			  << "Error: Idea number not valid."
+			  << RES << std::endl;
+		return "";
+	}
+	else{
+		std::cout << "Idea number " << nb 
+				  << " is: ";
+	}
+	return this->_ideas[nb];
 }

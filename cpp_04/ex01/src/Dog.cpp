@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 12:52:47 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/21 17:34:56 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/08/22 18:46:48 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,25 @@
 /******************************************************************************/
 
 Dog::Dog(): Animal(){
-	this->_type = "Dog";
 	std::cout << BGRN
 			  << "Dog was constructed."
 			  << RES << std::endl;
+	this->_type = "Dog";
+	this->_brain = new Brain();
 }
 
-Dog::Dog(Dog& src): Animal(src){
-	*this = src;
+Dog::Dog(const Dog& src): Animal(src){
+	this->_type = src._type;
+	this->_brain = new Brain(*src._brain); // deep copy of brain
 	std::cout << BGRN
 			  << "Dog was copied and constructed."
 			  << RES << std::endl;
 }
 
 Dog::~Dog(){
+	delete _brain;
 	std::cout << BRED
-			  << "Dog was destructed."
+			  << "Dog was destroyed."
 			  << RES << std::endl;
 }
 
@@ -42,9 +45,11 @@ Dog::~Dog(){
 Dog& Dog::operator= (const Dog& src){
 	if (this != &src){
 		this->_type = src._type;
+		delete this->_brain;
+		this->_brain = new Brain(*src._brain); //deep copy of brain
 	}
 	std::cout << BYEL
-			  << "Dog src was copied into existing Dog obj."
+			  << "Dog was copied into existing Dog."
 			  << RES << std::endl;
 	return *this;
 }
@@ -55,4 +60,8 @@ Dog& Dog::operator= (const Dog& src){
 
 void Dog::makeSound() const{
 	std::cout << "wof wof" << std::endl;
+}
+
+Brain* Dog::getBrain() const{
+	return this->_brain;
 }
