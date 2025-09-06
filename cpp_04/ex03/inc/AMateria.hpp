@@ -1,0 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/26 12:26:59 by isabeltooti       #+#    #+#             */
+/*   Updated: 2025/09/06 21:33:27 by isabeltooti      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
+
+#include <string>
+#include <iomanip>
+#include <iostream>
+#include "ICharacter.hpp"
+
+#define RED "\033[0;31m"
+#define GRN "\033[0;32m"  
+#define YEL "\033[0;33m"
+#define CYA "\033[36m" 
+#define BRED "\033[31;1m"
+#define BGRN "\033[32;1m"
+#define BYEL "\033[33;1m"
+#define BCYA "\033[36;1m"
+#define RES "\033[0m"
+
+class AMateria{
+    protected:
+        const std::string _type;
+    public:
+        AMateria();
+        AMateria(std::string const & type);
+        AMateria(const AMateria& src);
+
+        AMateria& operator= (const AMateria& src);
+
+        ~AMateria();
+    
+        std::string const & getType() const;
+        virtual AMateria* clone() const = 0;
+        virtual void use(ICharacter& target);
+};
+
+#endif
