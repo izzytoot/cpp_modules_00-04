@@ -6,11 +6,11 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 13:00:48 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/22 18:30:42 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/23 11:22:07 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "../inc/WrongCat.hpp"
 
 /******************************************************************************/
 /*                  Constructors, Copy Constructor, Destructor                 */

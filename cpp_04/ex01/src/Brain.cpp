@@ -6,11 +6,11 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 17:14:55 by icunha-t          #+#    #+#             */
-/*   Updated: 2025/08/22 18:29:38 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/23 11:21:47 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "../inc/Brain.hpp"
 
 /******************************************************************************/
 /*                  Constructors, Copy Constructor, Destructor                 */

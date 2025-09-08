@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/22 19:12:07 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/23 11:28:17 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int main(){
           << RES << std::endl 
 		  << "Uncomment main.cpp to check." 
 		  << std::endl;
-	// AAnimal dog;
-	// AAnimal* aanimal = new AAnimal();
+	 //AAnimal dog;
+	 //AAnimal* aanimal = new AAnimal();
 
 	std::cout << std::endl;
 	return 0;

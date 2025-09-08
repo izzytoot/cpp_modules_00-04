@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 12:53:20 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/22 19:01:34 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/23 11:27:35 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Cat::Cat(): AAnimal(){
 
 Cat::Cat(const Cat& src): AAnimal(src){
 	this->_type = src._type;
-	this->_brain = new Brain(*src._brain); //deep copy of brain. *this = src would be a shalow copy and they would literally share the same memory space
+	this->_brain = new Brain(*src._brain);
 	std::cout << BGRN
 			  << "Cat was copied and constructed."
 			  << RES << std::endl;
@@ -46,7 +46,7 @@ Cat& Cat::operator= (const Cat& src){
 	if (this != &src){
 		this->_type = src._type;
 		delete this->_brain;
-		this->_brain = new Brain(*src._brain); //deep copy of brain
+		this->_brain = new Brain(*src._brain);
 	}
 	std::cout << BYEL
 			  << "Cat was copied into existing Cat."

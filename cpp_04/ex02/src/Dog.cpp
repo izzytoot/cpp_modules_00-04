@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 12:52:47 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/22 19:01:40 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/23 11:27:46 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Dog::Dog(): AAnimal(){
 
 Dog::Dog(const Dog& src): AAnimal(src){
 	this->_type = src._type;
-	this->_brain = new Brain(*src._brain); // deep copy of brain
+	this->_brain = new Brain(*src._brain);
 	std::cout << BGRN
 			  << "Dog was copied and constructed."
 			  << RES << std::endl;
@@ -46,7 +46,7 @@ Dog& Dog::operator= (const Dog& src){
 	if (this != &src){
 		this->_type = src._type;
 		delete this->_brain;
-		this->_brain = new Brain(*src._brain); //deep copy of brain
+		this->_brain = new Brain(*src._brain);
 	}
 	std::cout << BYEL
 			  << "Dog was copied into existing Dog."

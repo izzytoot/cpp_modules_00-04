@@ -6,14 +6,14 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:43:25 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/22 18:44:24 by icunha-t         ###   ########.fr       */
+/*   Updated: 2025/08/23 11:21:36 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "../inc/Animal.hpp"
+#include "../inc/Dog.hpp"
+#include "../inc/Cat.hpp"
+#include "../inc/Brain.hpp"
 
 int main(){
 	std::cout << std::endl
