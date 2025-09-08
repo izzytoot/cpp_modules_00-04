@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 12:59:24 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/08/26 13:30:19 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/09/08 12:45:35 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ AMateria::AMateria(): _type("no type"){
 
 AMateria::AMateria(std::string const & type): _type(type){
      std::cout << BGRN 
-              << "AMateria was constructed with type" 
+              << "AMateria was constructed with type "
+			  << type
               << RES << std::endl;
 }
   
@@ -46,9 +47,8 @@ AMateria::~AMateria(){
 /******************************************************************************/
 
 AMateria& AMateria::operator= (const AMateria& src){
-    if (this != &src)
-        this->_type = src._type;
-    std::cout << BGRN 
+	(void)src;
+    std::cout << BYEL 
               << "AMateria was copied with operator" 
               << RES << std::endl;
     return *this;
@@ -61,6 +61,9 @@ std::string const & AMateria::getType() const{
     return this->_type;
 }
  
-virtual void AMateria::use(ICharacter& target){ //understand better
-    void(target);
+void AMateria::use(ICharacter& target){ //understand better
+    std::cout << CYA
+			  << "AMATERIA: nothing happens to "
+			  << target.getName()
+			  << RES << std::endl;
 }

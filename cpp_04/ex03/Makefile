@@ -12,7 +12,7 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -Wshadow -Wno-shadow
 
 INC_DIR = ./inc/
 SRCS_DIR = ./src/
-SRCS = $(addprefix $(SRCS_DIR), main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp ICharacter.cpp MateriaSource.cpp)
+SRCS = $(addprefix $(SRCS_DIR), main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp Fire.cpp MateriaSource.cpp)
 TMP = ./tmp
 
 ################################################################################

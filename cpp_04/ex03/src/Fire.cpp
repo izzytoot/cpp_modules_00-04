@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.cpp                                     :+:      :+:    :+:   */
+/*   Fire.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/26 13:36:49 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/09/06 21:40:28 by isabeltooti      ###   ########.fr       */
+/*   Created: 2025/08/26 12:39:51 by isabeltooti       #+#    #+#             */
+/*   Updated: 2025/09/08 12:58:18 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ICharacter.hpp"
+#include "../inc/Fire.hpp"
 
 /******************************************************************************/
 /*                  Constructors, Copy Constructor, Destructor                 */
 /******************************************************************************/
 
-ICharacter::ICharacter(): _name("nameless") {
+Fire::Fire(): AMateria("fire"){
     std::cout << BGRN 
-              << "ICharacter was default constructed" 
+              << "Ice was constructed" 
               << RES << std::endl;
 }
 
-ICharacter::ICharacter(std::str name): _name(name) {
-    std::cout << BGRN 
-              << "ICharacter was constructed" 
-              << RES << std::endl;
-}
-
-ICharacter::ICharacter(const ICharacter& src){
+Fire::Fire(const Fire& src): AMateria("fire"){
     *this = src;
     std::cout << BGRN 
-              << "ICharacter was copied and constructed" 
+              << "Fire was copied and constructed" 
               << RES << std::endl;
 }
 
-ICharacter::~ICharacter(){
+Fire::~Fire(){
     std::cout << BRED 
-              << "ICharacter was destructed" 
+              << "Fire was destructed" 
               << RES << std::endl;
 }
 
@@ -45,21 +39,28 @@ ICharacter::~ICharacter(){
 /*                                Operators                                   */
 /******************************************************************************/
 
-ICharacter& ICharacter::operator = (const ICharacter& src){
-    if (this != src){
-        this->_name = src._name;
-    }
-    std::cout << BGRN 
-              << "ICharacter was copied with operator" 
+Fire& Fire::operator= (const Fire& src){
+    if (this != &src)
+		AMateria::operator= (src);
+    std::cout << BYEL 
+              << "Fire was copied with operator" 
               << RES << std::endl;
     return *this;
+    
 }
 
 /******************************************************************************/
 /*                              Member Functions                              */
 /******************************************************************************/
 
-std::string ICharacter::getName(){
-    return this->_name;
+AMateria* Fire::clone()const{ //understand better
+    return new Fire(*this);
 }
-  
+
+void Fire::use(ICharacter& target){
+    std::cout << CYA
+              << "FIRE: * shoots a fire at strike "
+              << target.getName()
+              << " *"
+              << RES << std::endl;
+}

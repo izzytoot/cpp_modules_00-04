@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 21:01:10 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/09/06 21:39:16 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/09/08 12:39:42 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/MateriaSource.hpp"
-#include "../inc/IMateriaSource.hpp"
 
 /******************************************************************************/
 /*                  Constructors, Copy Constructor, Destructor                 */
@@ -51,16 +50,17 @@ MateriaSource::~MateriaSource(){
 /******************************************************************************/
 
 MateriaSource& MateriaSource::operator = (const MateriaSource& src){
-    if (this != src){
+    if (this != &src){
         for (int i = 0; i < 4; i++){
             delete this->_materias[i];
+			this->_materias[i] = NULL;
             if (src._materias[i])
                 this->_materias[i] = src._materias[i]->clone();
             else
                 this->_materias[i] = NULL;
         }
     }
-    std::cout << BGRN 
+    std::cout << BYEL 
               << "MateriaSource was copied with operator" 
               << RES << std::endl;
     return *this;
@@ -74,10 +74,12 @@ void MateriaSource::learnMateria(AMateria* m){
     for (int i = 0; i < 4; i++){
         if (!this->_materias[i]){
             this->_materias[i] = m->clone();
-            std::cout << GRN
+            std::cout << CYA
                       << "Materia of type "
                       << m->getType()
                       << " learnt."
+					  << RES << std::endl;
+			delete m;
             return;
         }
     }
@@ -88,8 +90,8 @@ void MateriaSource::learnMateria(AMateria* m){
 
 AMateria* MateriaSource::createMateria(std::string const & type){
     for (int i = 0; i < 4; i++){
-        if (this->_materias[i] && this->_materias[i]->getType == type)
-            return this->_materias[i]->clone;
+        if (this->_materias[i] && this->_materias[i]->getType() == type)
+            return this->_materias[i]->clone();
     }
     std::cout << RED
               << "Cannot create new MateriaSource: type not found."

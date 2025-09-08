@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 13:33:18 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/09/06 21:37:21 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/09/08 12:30:18 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 #define BYEL "\033[33;1m"
 #define BCYA "\033[36;1m"
 #define RES "\033[0m"
+
+class AMateria; // informs that there is a type named AMateria. We don't need the full definition
 
 class ICharacter{
     public:

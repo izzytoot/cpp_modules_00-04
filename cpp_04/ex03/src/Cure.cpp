@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isabeltootill <isabeltootill@student.42    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 12:40:16 by isabeltooti       #+#    #+#             */
-/*   Updated: 2025/09/06 16:24:55 by isabeltooti      ###   ########.fr       */
+/*   Updated: 2025/09/08 12:39:30 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,12 @@ Cure::~Cure(){
 /******************************************************************************/
 
 Cure& Cure::operator= (const Cure& src){
-   if (this != &src){
-        this->_type = src._type;
-   }
-    std::cout << BGRN 
-              << "Cure was copied with operator" 
-              << RES << std::endl;
-    return *this;
+	if (this != &src)
+		AMateria::operator= (src);
+	std::cout << BYEL
+   			  << "Cure was copied with operator" 
+			  << RES << std::endl;
+	return *this;
 }
 
 /******************************************************************************/
@@ -58,9 +57,9 @@ AMateria* Cure::clone()const{ //understand better
 }
 
 void Cure::use(ICharacter& target){
-    std::cout << BCYA
-              << "* heals "
-              << target->getName()
+    std::cout << CYA
+              << "CURE: * heals "
+              << target.getName()
               << "'s wounds *"
               << RES << std::endl;
 }
